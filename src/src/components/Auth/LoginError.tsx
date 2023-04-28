@@ -13,7 +13,7 @@ const LoginError = () => {
 
   return (
     <div className="login-error-container">
-      <button className="loggin-error-button" onClick={closeLoginError}>X</button>
+      <button className="login-error-button" onClick={closeLoginError}>X</button>
       <div className="login-error-text">Incorrect email or password. Please create an account if you haven't already</div>
     </div>
   )

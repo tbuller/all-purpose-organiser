@@ -10,12 +10,12 @@ type User = {
 
 type UsersState = {
   users: User[];
-  loggedInUser: User | {};
+  loggedInUser: User | null;
 }
 
 const initialState: UsersState = {
   users: [],
-  loggedInUser: {}
+  loggedInUser: null
 }
 
 const usersSlice = createSlice({

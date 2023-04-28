@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootStateUsers } from '../../redux/usersSlice';
 import { setLoggedInUser } from '../../redux/usersSlice';
 import { RootStateAuth } from '../../redux/authSlice';
+import { setLoginError } from '../../redux/authSlice';
 import LoginError from './LoginError';
 import '../../styling/Auth/Login.scss';
 
@@ -32,9 +33,11 @@ const Login: React.FC<LoginProps> = ({ navigate }) => {
   const handleLogin = () => {
     const relevantUser = users.find(user => user.email === email && user.password === password);
     if (relevantUser) {
-      console.log("successfully authenticated");
+      dispatch(setLoginError(false));
+      dispatch(setLoggedInUser(relevantUser));
+      navigate("/home");
     } else {
-      console.log("username or password incorrect");
+      dispatch(setLoginError(true));
     }
   }
 
