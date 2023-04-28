@@ -2,10 +2,12 @@ import { createSlice } from '@reduxjs/toolkit';
 
 type AuthState = {
   passwordsNotMatching: boolean;
+  loginError: boolean;
 }
 
 const initialState: AuthState = {
-  passwordsNotMatching: false
+  passwordsNotMatching: false,
+  loginError: false
 }
 
 const authSlice = createSlice({
@@ -14,12 +16,15 @@ const authSlice = createSlice({
   reducers: {
     setPasswordsNotMatching: (state, action) => {
       state.passwordsNotMatching = action.payload;
+    },
+    setLoginError: (state, action) => {
+      state.loginError = action.payload;
     }
   }
 })
 
 export default authSlice.reducer;
-export const { setPasswordsNotMatching } = authSlice.actions;
+export const { setPasswordsNotMatching, setLoginError } = authSlice.actions;
 
 export type RootStateAuth = {
   auth: AuthState;
