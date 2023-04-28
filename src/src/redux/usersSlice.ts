@@ -15,4 +15,4 @@ const usersSlice = createSlice({
 })
 
 export default usersSlice.reducer;
-const { setUsers } = usersSlice.actions;
+export const { setUsers } = usersSlice.actions;
