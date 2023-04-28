@@ -10,7 +10,7 @@ const Landing: React.FC<LandingProps> = ({ navigate }) => {
 
   return (
     <div className="landing-page-container">
-
+      This is the landing page
     </div>
   )
 }

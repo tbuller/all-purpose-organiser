@@ -1,6 +1,8 @@
 import React from 'react';
 import { useNavigate, Routes, Route } from 'react-router-dom';
 import Landing from './components/Landing';
+import Signup from './components/Auth/Signup';
+import Login from './components/Auth/Login';
 
 const App = () => {
 
@@ -9,6 +11,8 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Landing navigate={navigate} />} />
+      <Route path="/singup" element={<Signup navigate={navigate} />} />
+      <Route path="/login" element={<Login navigate={navigate} />} />
     </Routes>
   )
     
