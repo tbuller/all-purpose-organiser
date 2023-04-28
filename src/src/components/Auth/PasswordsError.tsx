@@ -13,8 +13,8 @@ const PasswordsError = () => {
 
   return (
     <div className="passwords-error-container">
-      <div>Passwords do not match, please try again</div>
-      <button onClick={closeErrorWarning}>X</button>
+      <button className="passwords-error-button" onClick={closeErrorWarning}>X</button>
+      <div className="passwords-error-text">Passwords do not match, please make sure that you are typing the same password twice</div>
     </div>
   )
 }
