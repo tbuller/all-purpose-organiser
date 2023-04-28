@@ -6,6 +6,7 @@ const logger = require("morgan");
 const fileUpload = require("express-fileupload");
 
 const UsersRouter = require("./routes/users");
+const ShoppingItemsRouter = require("./routes/shoppingItems");
 
 const app = express();
 app.use(fileUpload());
@@ -20,5 +21,6 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/users", UsersRouter);
+app.use("/shopping", ShoppingItemsRouter);
 
 module.exports = app;
