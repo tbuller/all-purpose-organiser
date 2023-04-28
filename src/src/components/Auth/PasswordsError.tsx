@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { setPasswordsNotMatching } from '../../redux/authSlice';
+import '../../styling/Auth/PasswordsError.scss';
 
 const PasswordsError = () => {
 
