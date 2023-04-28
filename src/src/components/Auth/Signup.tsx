@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import PasswordsError from './PasswordsError';
 
 interface SignupProps {
   navigate: ReturnType<typeof useNavigate>
@@ -49,6 +50,7 @@ const Signup: React.FC<SignupProps> = ({ navigate }) => {
 
   return (
     <div className="signup-page-container">
+      {passwordsNotMatching && <PasswordsError />}
       <label className="signup-page-label">Email:</label>
       <input className="signup-page-input" type="text" onChange={handleEmailChange} />
       <label className="signup-page-label">Password:</label>
