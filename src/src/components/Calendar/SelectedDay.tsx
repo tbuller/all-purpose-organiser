@@ -3,11 +3,14 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootStateCalendar } from '../../redux/calendarSlice';
 import { unsetSelectedDay } from '../../redux/calendarSlice';
+import EventForm from './EventForm'; 
 
 const SelectedDay = () => {
 
   const dispatch = useDispatch();
   const selectedDay = useSelector((state: RootStateCalendar) => state.calendar.selectedDay);
+
+  const [showForm, setShowForm] = useState(false);
 
   const handleBackToCalendar = () => {
     dispatch(unsetSelectedDay);
@@ -16,6 +19,10 @@ const SelectedDay = () => {
   return (
     <div className="selected-day-container">
       <button onClick={handleBackToCalendar}>Back to calendar</button>
+      {showForm && <EventForm />}
+      <div className="day-info">
+
+      </div>
     </div>
   )
 }
