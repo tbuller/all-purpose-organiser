@@ -6,6 +6,7 @@ import { RootStateUsers } from '../../redux/usersSlice';
 import { User } from '../../redux/usersSlice';
 import { setLoggedInUser } from '../../redux/usersSlice';
 import NavBar from '../Nav/NavBar';
+import '../../styling/HomePage/HomePage.scss';
 
 interface HomePageProps {
   navigate: ReturnType<typeof useNavigate>;

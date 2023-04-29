@@ -3,6 +3,9 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootStateNav } from '../../redux/navSlice';
 import { setViewedComponent } from '../../redux/navSlice';
+import { BsFillCalendarFill } from 'react-icons/bs';
+import { GiShoppingCart } from 'react-icons/gi';
+import '../../styling/Nav/NavBar.scss';
 
 const NavBar = () => {
 
@@ -15,8 +18,8 @@ const NavBar = () => {
 
   return (
     <div className="nav-bar-container">
-      <button className="nav-bar-button">Calendar</button>
-      <button className="nav-bar-button">Shopping</button>
+      <button className="nav-bar-button"><BsFillCalendarFill className="calendar-icon" /></button>
+      <button className="nav-bar-button"><GiShoppingCart className="shopping-icon" /></button>
     </div>
   )
 }

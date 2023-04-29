@@ -1,0 +1,24 @@
+.nav-bar-container {
+  height: 10em;
+  display: flex;
+  flex-direction: column;
+  float: right;
+  margin-right: 1.5em;
+  top: 50%;
+  transform: translateY(100%);
+}
+
+.nav-bar-button {
+  height: 4em;
+  width: 4em;
+  border-radius: 3em;
+  border: none;
+}
+
+.calendar-icon {
+  font-size: 2em;
+}
+
+.shopping-icon {
+  font-size: 2.2em;
+}
