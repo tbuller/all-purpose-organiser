@@ -5,7 +5,7 @@ type NavState = {
 }
 
 const initialState = {
-  viewedComponent: "month"
+  viewedComponent: "calendar"
 }
 
 const navSlice = createSlice({

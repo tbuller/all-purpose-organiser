@@ -18,8 +18,8 @@ const NavBar = () => {
 
   return (
     <div className="nav-bar-container">
-      <button className="nav-bar-button"><BsFillCalendarFill className="calendar-icon" /></button>
-      <button className="nav-bar-button"><GiShoppingCart className="shopping-icon" /></button>
+      <button className={`nav-bar-button${viewedComponent === "calendar" ? " selected" : ""}`} onClick={() => handleSetComponent("calendar")}><BsFillCalendarFill className="calendar-icon" /></button>
+      <button className={`nav-bar-button${viewedComponent === "shopping" ? " selected" : ""}`} onClick={() => handleSetComponent("shopping")}><GiShoppingCart className="shopping-icon" /></button>
     </div>
   )
 }
