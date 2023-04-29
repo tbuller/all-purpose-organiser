@@ -9,6 +9,7 @@ const Days = () => {
 
   const dispatch = useDispatch();
   const daysOfMonth = useSelector((state: RootStateCalendar) => state.calendar.daysOfMonth);
+  const todaysDate = useSelector((state: RootStateCalendar) => state.calendar.todaysDate);
 
   const handleDaySelect = (day: string) => {
     dispatch(setSelectedDay(day));
@@ -19,7 +20,7 @@ const Days = () => {
       {daysOfMonth.map(day =>
         <div className="individual-day-container" key={day} onClick={() => handleDaySelect(day)}>
           <span className="day-info-container">
-          <p className="day-number">{day.substring(9, 11)[1] === "," ? day.substring(9, 10) : day.substring(9, 11)}</p>
+          <p className={`day-number${todaysDate === day ? " selected" : ""}`}>{day.substring(9, 11)[1] === "," ? day.substring(9, 10) : day.substring(9, 11)}</p>
           <p className="day-of-the-week">{day.substring(0, 3)}</p>
           </span>
         </div>

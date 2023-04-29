@@ -2,18 +2,22 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const currentDate = new Date();
 
+const todaysDate =  new Intl.DateTimeFormat('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' }).format(currentDate);
+
 type CalendarState = {
   view: string;
   selectedMonth: number;
   daysOfMonth: string[];
   selectedDay: string;
+  todaysDate: string;
 }
 
 const initialState: CalendarState = {
   view: "month",
   selectedMonth: currentDate.getMonth(),
   daysOfMonth: [],
-  selectedDay: ""
+  selectedDay: "",
+  todaysDate: todaysDate
 }
 
 const calendarSlice = createSlice({
