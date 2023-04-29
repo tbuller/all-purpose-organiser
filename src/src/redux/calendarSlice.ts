@@ -9,6 +9,7 @@ type CalendarState = {
   selectedMonth: number;
   daysOfMonth: string[];
   selectedDay: string;
+  isDaySelected: boolean;
   todaysDate: string;
 }
 
@@ -17,6 +18,7 @@ const initialState: CalendarState = {
   selectedMonth: currentDate.getMonth(),
   daysOfMonth: [],
   selectedDay: "",
+  isDaySelected: false,
   todaysDate: todaysDate
 }
 
@@ -35,12 +37,17 @@ const calendarSlice = createSlice({
     },
     setSelectedDay: (state, action) => {
       state.selectedDay = action.payload;
+      state.isDaySelected = true;
+    },
+    unsetSelectedDay: (state, action) => {
+      state.selectedDay = "";
+      state.isDaySelected = false;
     }
   }
 })
 
 export default calendarSlice.reducer;
-export const { setView, setSelectedMonth, setDaysOfMonth, setSelectedDay } = calendarSlice.actions;
+export const { setView, setSelectedMonth, setDaysOfMonth, setSelectedDay, unsetSelectedDay } = calendarSlice.actions;
 
 export type RootStateCalendar = {
   calendar: CalendarState

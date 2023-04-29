@@ -6,6 +6,7 @@ import { setView } from '../../redux/calendarSlice';
 import { setSelectedMonth, setDaysOfMonth } from '../../redux/calendarSlice';
 import Week from './Week';
 import Month from './Month';
+import SelectedDay from './SelectedDay';
 import '../../styling/Calendar/Calendar.scss';
 
 const Calendar = () => {
@@ -13,6 +14,7 @@ const Calendar = () => {
   const dispatch = useDispatch();
   const view = useSelector((state: RootStateCalendar) => state.calendar.view);
   const selectedMonth = useSelector((state: RootStateCalendar) => state.calendar.selectedMonth);
+  const isDaySelected = useSelector((state: RootStateCalendar) => state.calendar.isDaySelected);
 
   useEffect(() => {
     getDaysOfMonth();
@@ -39,7 +41,8 @@ const Calendar = () => {
       <div className="calendar-view-buttons-container">
         <button className="calendar-view-button" onClick={() => handleViewChange("month")}>Month</button>
         <button className="calendar-view-button" onClick={() => handleViewChange("week")}>Week</button>
-        {view === "month" && <Month />}
+        {(view === "month" && !isDaySelected) && <Month />}
+        {isDaySelected && <SelectedDay />}
       </div>
     </div>
   )
