@@ -35,6 +35,7 @@ const Login: React.FC<LoginProps> = ({ navigate }) => {
     if (relevantUser) {
       dispatch(setLoginError(false));
       dispatch(setLoggedInUser(relevantUser));
+      localStorage.setItem("userId", relevantUser._id);
       navigate("/home");
     } else {
       dispatch(setLoginError(true));

@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setUsers } from '../redux/usersSlice'
+import { setUsers } from '../../redux/usersSlice'
 
 interface LandingProps {
   navigate: ReturnType<typeof useNavigate>;

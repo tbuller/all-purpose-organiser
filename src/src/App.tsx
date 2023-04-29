@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate, Routes, Route } from 'react-router-dom';
-import Landing from './components/Landing';
+import Landing from './components/Landing/Landing';
 import Signup from './components/Auth/Signup';
 import Login from './components/Auth/Login';
 import HomePage from './components/HomePage/HomePage'
