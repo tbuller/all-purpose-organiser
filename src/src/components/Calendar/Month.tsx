@@ -5,6 +5,7 @@ import { RootStateCalendar } from '../../redux/calendarSlice';
 import { setSelectedMonth } from '../../redux/calendarSlice';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { AiOutlineArrowRight } from 'react-icons/ai';
+import Days from './Days';
 
 const Month = () => {
 
@@ -28,6 +29,7 @@ const Month = () => {
       <button className="month-arrow-button" onClick={() => handleSelectedMonthChange(-1)}><AiOutlineArrowLeft /></button>
       <button className="month-arrow-button" onClick={() => handleSelectedMonthChange(1)}><AiOutlineArrowRight /></button>
       </div>
+      <Days />
     </div>
   )
 }

@@ -1,0 +1,29 @@
+.calendar-days-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.individual-day-container {
+  height: 12em;
+  width: 10em;
+  border: solid;
+  border-color: black;
+  margin: 0.5em;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.day-info-container {
+  display: flex;
+}
+
+.day-number {
+  margin-left: 0.5em;
+  font-size: 1.2em;
+}
+
+.day-of-the-week {
+  margin-left: 3em;
+}

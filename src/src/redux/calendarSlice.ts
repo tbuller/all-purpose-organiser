@@ -6,12 +6,14 @@ type CalendarState = {
   view: string;
   selectedMonth: number;
   daysOfMonth: string[];
+  selectedDay: string;
 }
 
 const initialState: CalendarState = {
   view: "month",
   selectedMonth: currentDate.getMonth(),
-  daysOfMonth: []
+  daysOfMonth: [],
+  selectedDay: ""
 }
 
 const calendarSlice = createSlice({
@@ -26,12 +28,15 @@ const calendarSlice = createSlice({
     },
     setDaysOfMonth: (state, action) => {
       state.daysOfMonth = action.payload
+    },
+    setSelectedDay: (state, action) => {
+      state.selectedDay = action.payload;
     }
   }
 })
 
 export default calendarSlice.reducer;
-export const { setView, setSelectedMonth, setDaysOfMonth } = calendarSlice.actions;
+export const { setView, setSelectedMonth, setDaysOfMonth, setSelectedDay } = calendarSlice.actions;
 
 export type RootStateCalendar = {
   calendar: CalendarState
