@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootStateCalendar } from '../../redux/calendarSlice';
 import { setView } from '../../redux/calendarSlice';
 import { setSelectedMonth } from '../../redux/calendarSlice';
-import Day from './Day';
 import Week from './Week';
 import Month from './Month';
 import '../../styling/Calendar/Calendar.scss';
