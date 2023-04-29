@@ -19,6 +19,7 @@ const SelectedDay = () => {
   return (
     <div className="selected-day-container">
       <button onClick={handleBackToCalendar}>Back to calendar</button>
+      <button onClick={() => setShowForm(!showForm)}>Add a new event</button>
       {showForm && <EventForm />}
       <div className="day-info">
 

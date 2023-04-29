@@ -1,16 +1,34 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootStateCalendar } from '../../redux/calendarSlice';
+import { addEvent } from '../../redux/calendarSlice';
+import { RootStateUsers } from '../../redux/usersSlice';
 
 const EventForm = () => {
 
+  const dispatch = useDispatch();
   const selectedDay = useSelector((state: RootStateCalendar) => state.calendar.selectedDay);
+  const loggedInUser = useSelector((state: RootStateUsers) => state.users.loggedInUser);
 
   const [title, setTitle] = useState("");
   const [type, setType] = useState("");
   const [people, setPeople] = useState("");
   const [time, setTime] = useState("");
+
+  const createEvent = () => {
+    fetch("http://localhost:8080/events", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ day: selectedDay, creatorId: loggedInUser?._id, title: title, type: type, people: people, time: time })
+    })
+      .then(response => response.json())
+      .then(data => {
+        dispatch(addEvent(data.event));
+      })
+  }
 
   const handleTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(event.target.value);
@@ -38,7 +56,7 @@ const EventForm = () => {
       <input className="event-form-input" type="text" onChange={handlePeople} />
       <label className="event-form-label">Select a time:</label>
       <input className="event-form-input" type="text" onChange={handleTime} />
-      <button>Create event</button>
+      <button onClick={createEvent}>Create event</button>
     </div>
   )
 }
