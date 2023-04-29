@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootStateCalendar } from '../../redux/calendarSlice';
 import { setView } from '../../redux/calendarSlice';
+import { setSelectedMonth } from '../../redux/calendarSlice';
 import Day from './Day';
 import Week from './Week';
 import Month from './Month';
@@ -22,6 +23,7 @@ const Calendar = () => {
       <div className="calendar-view-buttons-container">
         <button className="calendar-view-button" onClick={() => handleViewChange("month")}>Month</button>
         <button className="calendar-view-button" onClick={() => handleViewChange("week")}>Week</button>
+        {view === "month" && <Month />}
       </div>
     </div>
   )
