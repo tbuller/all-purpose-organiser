@@ -7,6 +7,7 @@ const Day = () => {
 
   const dispatch = useDispatch();
   const selectedMonth = useSelector((state: RootStateCalendar) => state.calendar.selectedMonth);
+  const daysOfMonth = useSelector((state: RootStateCalendar) => state.calendar.daysOfMonth);
 
   return (
     <div className="calendar-day-container">
