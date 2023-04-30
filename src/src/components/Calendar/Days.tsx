@@ -2,8 +2,8 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootStateUsers } from '../../redux/usersSlice';
-import { RootStateCalendar } from '../../redux/calendarSlice';
-import { setSelectedDay } from '../../redux/calendarSlice';
+import { RootStateCalendar, Event } from '../../redux/calendarSlice';
+import { setSelectedDay, removeEvent } from '../../redux/calendarSlice';
 import { setLoggedInUser } from '../../redux/usersSlice';
 import '../../styling/Calendar/Days.scss'
 
@@ -15,6 +15,21 @@ const Days = () => {
   const todaysDate = useSelector((state: RootStateCalendar) => state.calendar.todaysDate);
   const events = useSelector((state: RootStateCalendar) => state.calendar.events);
 
+  const handleRemoveEvent = (event: Event, e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    fetch("http://localhost:8080/events", {
+      method: "delete",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ _id: event._id })
+    })
+      .then(response => response.json())
+      .then(data => {
+        dispatch(removeEvent(data.event));
+      })
+  }
+  
   const handleDaySelect = (day: string) => {
     dispatch(setSelectedDay(day));
   }
@@ -32,7 +47,7 @@ const Days = () => {
               <span className="day-component-individual-event-container" key={event._id}>
                 <p className="day-component-event-title">{event.title}</p>
                 <p className="day-component-event-time">{event.time}</p>
-                <button className="day-component-event-button">X</button>
+                <button className="day-component-event-button" onClick={(e) => handleRemoveEvent(event, e)}>X</button>
               </span>  
               )}
           </div>
