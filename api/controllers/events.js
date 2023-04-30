@@ -19,6 +19,16 @@ const EventsController = {
         res.status(200).json({ message: "OK", events: events });
       }
     })
+  },
+  Delete: (req, res, next) => {
+    const filter = { _id: req.body._id };
+    Event.findOneAndDelete(filter, (err, event) => {
+      if (err) {
+        res.status(400).json({ message: "Bad request", err: err, req: req.body });
+      } else {
+        res.status(200).json({ message: "OK", event: event });
+      }
+    })
   }
 }
 

@@ -1,3 +1,9 @@
 .individual-event-container {
-  background-color: green;
+  height: 2em;
+  width: 20em;
+  margin-top: 1em;
+  
+  &.workout_exercise {
+    background-color: red;
+  }
 }

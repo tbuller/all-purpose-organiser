@@ -60,12 +60,15 @@ const calendarSlice = createSlice({
     },
     addEvent: (state, action) => {
       state.events.push(action.payload);
+    },
+    removeEvent: (state, action) => {
+      state.events = state.events.filter(event => event._id !== action.payload._id);
     }
   }
 })
 
 export default calendarSlice.reducer;
-export const { setView, setSelectedMonth, setDaysOfMonth, setSelectedDay, unsetSelectedDay, setEvents, addEvent } = calendarSlice.actions;
+export const { setView, setSelectedMonth, setDaysOfMonth, setSelectedDay, unsetSelectedDay, setEvents, addEvent, removeEvent } = calendarSlice.actions;
 
 export type RootStateCalendar = {
   calendar: CalendarState
