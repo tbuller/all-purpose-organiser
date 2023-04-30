@@ -4,6 +4,16 @@ const currentDate = new Date();
 
 const todaysDate =  new Intl.DateTimeFormat('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' }).format(currentDate);
 
+export type Event = {
+  creatorId: string;
+  day: string;
+  people: string;
+  time: string;
+  title: string;
+  type: string;
+  _id: string;
+}
+
 type CalendarState = {
   view: string;
   selectedMonth: number;
@@ -11,7 +21,7 @@ type CalendarState = {
   selectedDay: string;
   isDaySelected: boolean;
   todaysDate: string;
-  events: any;
+  events: Event[];
 }
 
 const initialState: CalendarState = {
