@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootStateCalendar } from '../../redux/calendarSlice';
 import { unsetSelectedDay } from '../../redux/calendarSlice';
 import EventForm from './EventForm'; 
+import '../../styling/Calendar/SelectedDay.scss';
 
 const SelectedDay = () => {
 
@@ -19,8 +20,10 @@ const SelectedDay = () => {
   return (
     <div className="selected-day-container">
       <button onClick={handleBackToCalendar}>Back to calendar</button>
-      <button onClick={() => setShowForm(!showForm)}>Add a new event</button>
+      <button onClick={() => setShowForm(!showForm)}>{showForm ? "Close event form" : "Open event form"}</button>
+      <div className="event-form-wrapper">
       {showForm && <EventForm />}
+      </div>
       <div className="day-info">
 
       </div>

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootStateCalendar } from '../../redux/calendarSlice';
 import { addEvent } from '../../redux/calendarSlice';
 import { RootStateUsers } from '../../redux/usersSlice';
+import '../../styling/Calendar/EventForm.scss';
 
 const EventForm = () => {
 
@@ -36,6 +37,7 @@ const EventForm = () => {
 
   const handleType = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setType(event.target.value);
+    console.log(type);
   }
 
   const handlePeople = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -50,23 +52,23 @@ const EventForm = () => {
     <div className="event-form-container">
       <label className="event-form-label">Event title:</label>
       <input className="event-form-input" type="text" onChange={handleTitle} />
-      <select className="event-form-input" onChange={handleType}>
-        <option value="meeting">Meeting</option>
-        <option value="social_event">Social Event</option>
-        <option value="appointment">Appointment</option>
-        <option value="workout_exercise">Workout / Exercise</option>
-        <option value="educational">Educational</option>
-        <option value="celebration">Celebration</option>
-        <option value="reminder">Reminder</option>
-        <option value="travel">Travel</option>
-        <option value="entertainment">Entertainment</option>
-        <option value="religious_spiritual">Religious / Spiritual</option>
+      <select className="event-form-select" onChange={handleType}>
+        <option className="event-form-option" value="meeting">Meeting</option>
+        <option className="event-form-option" value="social_event">Social Event</option>
+        <option className="event-form-option" value="appointment">Appointment</option>
+        <option className="event-form-option" value="workout_exercise">Workout / Exercise</option>
+        <option className="event-form-option" value="educational">Educational</option>
+        <option className="event-form-option" value="celebration">Celebration</option>
+        <option className="event-form-option" value="reminder">Reminder</option>
+        <option className="event-form-option" value="travel">Travel</option>
+        <option className="event-form-option" value="entertainment">Entertainment</option>
+        <option className="event-form-option" value="religious_spiritual">Religious / Spiritual</option>
       </select>
       <label className="event-form-label">invite people (optional):</label>
       <input className="event-form-input" type="text" onChange={handlePeople} />
       <label className="event-form-label">Select a time:</label>
       <input className="event-form-input" type="text" onChange={handleTime} />
-      <button onClick={createEvent}>Create event</button>
+      <button className="event-form-create-event-button" onClick={createEvent}>Create event</button>
     </div>
   )
 }
