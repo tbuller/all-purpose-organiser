@@ -34,7 +34,7 @@ const EventForm = () => {
     setTitle(event.target.value);
   }
 
-  const handleType = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleType = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setType(event.target.value);
   }
 
@@ -50,8 +50,18 @@ const EventForm = () => {
     <div className="event-form-container">
       <label className="event-form-label">Event title:</label>
       <input className="event-form-input" type="text" onChange={handleTitle} />
-      <label className="event-form-label">Event type:</label>
-      <input className="event-form-input" type="text" onChange={handleType} />
+      <select className="event-form-input" onChange={handleType}>
+        <option value="meeting">Meeting</option>
+        <option value="social_event">Social Event</option>
+        <option value="appointment">Appointment</option>
+        <option value="workout_exercise">Workout / Exercise</option>
+        <option value="educational">Educational</option>
+        <option value="celebration">Celebration</option>
+        <option value="reminder">Reminder</option>
+        <option value="travel">Travel</option>
+        <option value="entertainment">Entertainment</option>
+        <option value="religious_spiritual">Religious / Spiritual</option>
+      </select>
       <label className="event-form-label">invite people (optional):</label>
       <input className="event-form-input" type="text" onChange={handlePeople} />
       <label className="event-form-label">Select a time:</label>
