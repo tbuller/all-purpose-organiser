@@ -43,7 +43,17 @@ const Days = () => {
           <p className="day-of-the-week">{day.substring(0, 3)}</p>
           </span>
           <div className="day-component-events-container">
-            {events.filter(event => event.day === day && event.creatorId === loggedInUser?._id).map(event => 
+            {events.filter(event => event.day === day && event.creatorId === loggedInUser?._id)
+            .sort((a, b) => {
+              const [aHours, aMinutes] = a.time.split(':').map(Number);
+              const [bHours, bMinutes] = b.time.split(':').map(Number);
+          
+              const aTotalMinutes = aHours * 60 + aMinutes;
+              const bTotalMinutes = bHours * 60 + bMinutes;
+          
+              return aTotalMinutes - bTotalMinutes;
+            })
+            .map(event => 
               <span className="day-component-individual-event-container" key={event._id}>
                 <p className="day-component-event-title">{event.title}</p>
                 <p className="day-component-event-time">{event.time}</p>
