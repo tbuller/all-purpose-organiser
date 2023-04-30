@@ -35,3 +35,32 @@
 .day-of-the-week {
   margin-left: 3em;
 }
+
+.day-component-individual-event-container {
+  display: flex;
+  margin-left: 0.5em;
+  margin-bottom: 0.2em;
+}
+
+.day-component-event-title {
+  margin: 0em;
+  margin-right: 1em;
+}
+
+.day-component-event-time {
+  margin: 0em;
+}
+
+.day-component-event-button {
+  margin-left: 0.5em;
+  border: none;
+  border-radius: 2em;
+  background-color: white;
+  color: red;
+
+  &:hover {
+    cursor: pointer;
+    background-color: red;
+    color: white;
+  }
+}
