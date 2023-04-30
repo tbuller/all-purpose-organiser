@@ -5,7 +5,7 @@ const EventSchema = new mongoose.Schema({
   creatorId: { type: String, required: true },
   title: { type: String, required: true },
   type: { type: String, required: true },
-  people: { type: String, required: true },
+  people: { type: String, required: false },
   time: { type: String, required: true }
 })
 

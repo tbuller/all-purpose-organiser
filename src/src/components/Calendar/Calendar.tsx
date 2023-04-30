@@ -1,9 +1,9 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootStateCalendar } from '../../redux/calendarSlice';
 import { setView } from '../../redux/calendarSlice';
-import { setSelectedMonth, setDaysOfMonth } from '../../redux/calendarSlice';
+import { setDaysOfMonth, setEvents } from '../../redux/calendarSlice';
 import Week from './Week';
 import Month from './Month';
 import SelectedDay from './SelectedDay';
@@ -15,6 +15,14 @@ const Calendar = () => {
   const view = useSelector((state: RootStateCalendar) => state.calendar.view);
   const selectedMonth = useSelector((state: RootStateCalendar) => state.calendar.selectedMonth);
   const isDaySelected = useSelector((state: RootStateCalendar) => state.calendar.isDaySelected);
+
+  useEffect(() => {
+    fetch("http://localhost:8080/events")
+      .then(response => response.json())
+      .then(data => {
+        dispatch(setEvents(data.events));
+      })
+  }, [])
 
   useEffect(() => {
     getDaysOfMonth();

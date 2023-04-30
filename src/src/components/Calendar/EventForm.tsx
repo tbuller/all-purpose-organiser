@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootStateCalendar } from '../../redux/calendarSlice';
 import { addEvent } from '../../redux/calendarSlice';
 import { RootStateUsers } from '../../redux/usersSlice';
+import TimeDropdown from './TimeDropdown';
 import '../../styling/Calendar/EventForm.scss';
 
 const EventForm = () => {
@@ -44,8 +45,9 @@ const EventForm = () => {
     setPeople(event.target.value);
   }
 
-  const handleTime = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleTime = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setTime(event.target.value);
+    console.log(time);
   }
 
   return (
@@ -67,7 +69,7 @@ const EventForm = () => {
       <label className="event-form-label">invite people (optional):</label>
       <input className="event-form-input" type="text" onChange={handlePeople} />
       <label className="event-form-label">Select a time:</label>
-      <input className="event-form-input" type="text" onChange={handleTime} />
+      <TimeDropdown onChange={handleTime} />
       <button className="event-form-create-event-button" onClick={createEvent}>Create event</button>
     </div>
   )

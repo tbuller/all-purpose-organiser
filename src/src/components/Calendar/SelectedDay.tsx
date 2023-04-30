@@ -10,11 +10,12 @@ const SelectedDay = () => {
 
   const dispatch = useDispatch();
   const selectedDay = useSelector((state: RootStateCalendar) => state.calendar.selectedDay);
+  const isDaySelected = useSelector((state: RootStateCalendar) => state.calendar.isDaySelected);
 
   const [showForm, setShowForm] = useState(false);
 
   const handleBackToCalendar = () => {
-    dispatch(unsetSelectedDay);
+    dispatch(unsetSelectedDay({}));
   }
 
   return (

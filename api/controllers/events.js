@@ -16,7 +16,7 @@ const EventsController = {
       if (err) {
         res.status(400).json({ message: "Bad request", err: err });
       } else {
-        res.status(200).json({ message: "OK", event: events });
+        res.status(200).json({ message: "OK", events: events });
       }
     })
   }
