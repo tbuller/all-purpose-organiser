@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootStateAuth } from '../../redux/authSlice';
 import { setPasswordsNotMatching } from '../../redux/authSlice';
+import { addUser } from '../../redux/usersSlice';
 import PasswordsError from './PasswordsError';
 import '../../styling/Auth/Signup.scss';
 
@@ -34,7 +35,9 @@ const Signup: React.FC<SignupProps> = ({ navigate }) => {
         body: JSON.stringify({ email: email, password: password, username: username })
       })
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => {
+          dispatch(addUser(data.user));
+        })
     }
   }
 

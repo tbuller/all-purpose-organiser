@@ -35,7 +35,7 @@ const usersSlice = createSlice({
 })
 
 export default usersSlice.reducer;
-export const { setUsers, setLoggedInUser } = usersSlice.actions;
+export const { setUsers, addUser, setLoggedInUser } = usersSlice.actions;
 
 export type RootStateUsers = {
   users: UsersState;
