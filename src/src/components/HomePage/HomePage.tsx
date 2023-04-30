@@ -9,6 +9,7 @@ import { RootStateNav } from '../../redux/navSlice';
 import NavBar from '../Nav/NavBar';
 import Calendar from '../Calendar/Calendar';
 import Shopping from '../Shopping/Shopping'
+import Notes from '../Notes/Notes';
 import '../../styling/HomePage/HomePage.scss';
 
 interface HomePageProps {
@@ -36,6 +37,7 @@ const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
       {loggedInUser !== null && <div className="logged-in-as">{`logged in as ${loggedInUser.username}`}</div>}
       {viewedComponent === "calendar" && <Calendar />}
       {viewedComponent === "shopping" && <Shopping />}
+      {viewedComponent === "notes" && <Notes />}
     </div>
   )
 }
