@@ -4,6 +4,7 @@ import authReducer from './authSlice';
 import shoppingReducer from './shoppingSlice';
 import calendarReducer from './calendarSlice';
 import navReducer from './navSlice';
+import notesReducer from './notesSlice';
 
 const store = configureStore({
   reducer: {
@@ -11,7 +12,8 @@ const store = configureStore({
     auth: authReducer,
     shopping: shoppingReducer,
     calendar: calendarReducer,
-    nav: navReducer
+    nav: navReducer,
+    notes: notesReducer
   }
 })
 
