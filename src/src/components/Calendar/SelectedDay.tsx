@@ -18,10 +18,6 @@ const SelectedDay = () => {
 
   const [showForm, setShowForm] = useState(false);
 
-  useEffect(() => {
-    console.log(myDaysEvents);
-  }, [])
-
   const handleBackToCalendar = () => {
     dispatch(unsetSelectedDay({}));
   }
@@ -34,7 +30,7 @@ const SelectedDay = () => {
       {showForm && <EventForm />}
       </div>
       <div className="day-info">
-
+        {myDaysEvents.length > 0 && <DaysEvents events={myDaysEvents} />}
       </div>
     </div>
   )
