@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { PayloadAction } from '@reduxjs/toolkit';
 
-type Note = {
+export type Note = {
   creatorId: string;
   title: string;
   content: string;
@@ -35,4 +35,8 @@ const notesSlice = createSlice({
 
 export default notesSlice.reducer;
 export const { setNotes, addNote, removeNote } = notesSlice.actions;
+
+export type RootStateNotes = {
+  notes: NotesState;
+}
 

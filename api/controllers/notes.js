@@ -19,5 +19,17 @@ const NotesController = {
         res.status(200).json({ message: "OK", notes: notes });
       }
     })
+  },
+  Delete: (req, res, next) => {
+    const filter = {_id: req.body._id};
+    Note.findOneAndDelete(filter, (err, note) => {
+      if (err) {
+        res.status(400).json({ message: "Bad request", err: err });
+      } else {
+        res.status(200).json({ message: "OK", note: note });
+      }
+    })
   }
 }
+
+module.exports = NotesController;

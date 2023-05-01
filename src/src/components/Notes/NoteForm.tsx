@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootStateUsers } from '../../redux/usersSlice';
+import '../../styling/Notes/NoteForm.scss';
 
 const NoteForm = () => {
 
@@ -27,16 +28,16 @@ const NoteForm = () => {
     setTitle(event.target.value);
   }
 
-  const handleContentChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleContentChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setContent(event.target.value);
   }
 
   return (
     <div className="note-form-container">
       <label className="note-form-label">Title:</label>
-      <input className="note-form-input" type="text" onChange={handleTitleChange} />
+      <input className="note-form-input-title" type="text" onChange={handleTitleChange} />
       <label className="note-form-label">Content:</label>
-      <input className="note-form-input" type="text" onChange={handleContentChange} />
+      <textarea className="note-form-input-content" onChange={handleContentChange} />
       <button className="note-form-button" onClick={createNote}>Create note</button>
     </div>
   )
