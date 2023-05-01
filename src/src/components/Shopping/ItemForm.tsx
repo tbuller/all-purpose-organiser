@@ -1,7 +1,11 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../../redux/shoppingSlice';
 
 const ItemForm = () => {
+
+  const dispatch = useDispatch();
 
   const [itemName, setItemName] = useState("");
   const [quantity, setQuantity] = useState(1);
@@ -12,10 +16,12 @@ const ItemForm = () => {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ itemName: itemName, quantity: quantity })
+      body: JSON.stringify({ name: itemName, quantity: quantity })
     })
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => {
+        dispatch(addItem(data.shoppingItem));
+      })
   }
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,10 +38,11 @@ const ItemForm = () => {
       <input className="item-name-input" type="text" onChange={handleNameChange} />
       <label className="item-quantity-label">Please choose the quantity desired</label>
       <span className="item-quantity-buttons-container">
-        <button className="item-quantity-button">+</button>
-        <button className="item-quantity-button">-</button>
+        <button className="item-quantity-button" onClick={() => handleQuantityChange(1)}>+</button>
+        <button className="item-quantity-button" onClick={() => handleQuantityChange(-1)}>-</button>
         <p>{quantity}</p>
       </span>
+      <button onClick={createItem}>Add Item</button>
     </div>
   )
 }

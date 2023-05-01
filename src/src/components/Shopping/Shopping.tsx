@@ -1,12 +1,16 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootStateUsers } from '../../redux/usersSlice';
+import { RootStateShopping, Item } from '../../redux/shoppingSlice';
 import { setShopping } from '../../redux/shoppingSlice';
 import ItemForm from './ItemForm';
 
 const Shopping = () => {
 
   const dispatch = useDispatch();
+  const loggedInUser = useSelector((state: RootStateUsers) => state.users.loggedInUser);
+  const myShoppingItems = useSelector((state: RootStateShopping) => state.shopping.shoppingList.filter((item: Item) => item.creatorId === loggedInUser?._id))
 
   const [showItemForm, setShowItemForm] = useState(false);
 
