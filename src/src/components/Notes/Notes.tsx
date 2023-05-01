@@ -5,7 +5,7 @@ import { RootStateUsers } from '../../redux/usersSlice';
 import { RootStateNotes } from '../../redux/notesSlice';
 import { setNotes } from '../../redux/notesSlice';
 import NoteForm from './NoteForm';
-import Note from './NoteHeader';
+import NoteHeader from './NoteHeader';
 import '../../styling/Notes/Notes.scss';
 
 const Notes = () => {
@@ -31,13 +31,13 @@ const Notes = () => {
 
   return (
     <div className="notes-page-container">
-      <button onClick={handleNoteFormOpen}>{openNoteForm ? "Close note form" : "Open note form"}</button>
+      <button className="open-notes-form-button" onClick={handleNoteFormOpen}>{openNoteForm ? "Close note form" : "Open note form"}</button>
       <div className="note-form-wrapper">
       {openNoteForm && <NoteForm />}
       </div>
       <div className="notes-display-container">
         {myNotes.map(note => 
-            <Note note={note} key={note._id} />
+            <NoteHeader note={note} key={note._id} />
           )}
       </div>
       <div className="selected-note-content-container">

@@ -1,8 +1,22 @@
+.notes-page-container {
+  height: 100%;
+  margin-left: 0;
+}
+
+.open-notes-form-button {
+  position: absolute;
+  right: 0;
+}
+
 .note-form-wrapper {
   display: flex;
   justify-content: center;
 }
 
 .notes-display-container {
+  height: 100%;
   width: 20%;
+  border-style: solid;
+  border-color: black;
+  border-width: 0 0.2em 0 0;
 }
