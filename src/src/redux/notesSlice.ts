@@ -11,10 +11,12 @@ export type Note = {
 
 type NotesState = {
   notes: Note[];
+  selectedNote: Note | null;
 }
 
 const initialState: NotesState = {
-  notes: []
+  notes: [],
+  selectedNote: null
 }
 
 const notesSlice = createSlice({
@@ -29,12 +31,15 @@ const notesSlice = createSlice({
     },
     removeNote: (state, action) => {
       state.notes = state.notes.filter(note => note._id !== action.payload._id);
+    },
+    setSelectedNote: (state, action) => {
+      state.selectedNote = action.payload;
     }
   }
 })
 
 export default notesSlice.reducer;
-export const { setNotes, addNote, removeNote } = notesSlice.actions;
+export const { setNotes, addNote, removeNote, setSelectedNote } = notesSlice.actions;
 
 export type RootStateNotes = {
   notes: NotesState;

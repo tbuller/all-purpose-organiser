@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootStateUsers } from '../../redux/usersSlice';
+import { addNote } from '../../redux/notesSlice';
 import '../../styling/Notes/NoteForm.scss';
 
 const NoteForm = () => {
@@ -21,7 +22,9 @@ const NoteForm = () => {
       body: JSON.stringify({ creatorId: loggedInUser?._id, title: title, content: content })
     })
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => {
+        dispatch(addNote(data.note));
+      })
   }
 
   const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

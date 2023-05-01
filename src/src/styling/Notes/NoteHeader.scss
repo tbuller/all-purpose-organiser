@@ -1,0 +1,9 @@
+.note-header-container {
+  border-style: solid;
+  border-color: black;
+
+  &:hover {
+    cursor: pointer;
+    background-color: green;
+  }
+}
