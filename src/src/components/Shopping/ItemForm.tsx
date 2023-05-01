@@ -1,11 +1,13 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootStateUsers } from '../../redux/usersSlice';
 import { addItem } from '../../redux/shoppingSlice';
 
 const ItemForm = () => {
 
   const dispatch = useDispatch();
+  const loggedInUser = useSelector((state: RootStateUsers) => state.users.loggedInUser);
 
   const [itemName, setItemName] = useState("");
   const [quantity, setQuantity] = useState(1);
@@ -16,7 +18,7 @@ const ItemForm = () => {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ name: itemName, quantity: quantity })
+      body: JSON.stringify({ creatorId: loggedInUser?._id, name: itemName, quantity: quantity })
     })
       .then(response => response.json())
       .then(data => {

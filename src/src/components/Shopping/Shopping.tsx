@@ -5,6 +5,7 @@ import { RootStateUsers } from '../../redux/usersSlice';
 import { RootStateShopping, Item } from '../../redux/shoppingSlice';
 import { setShopping } from '../../redux/shoppingSlice';
 import ItemForm from './ItemForm';
+import SingleItem from './SingleItem';
 
 const Shopping = () => {
 
@@ -30,6 +31,11 @@ const Shopping = () => {
     <div className="shopping-page-container">
       <button onClick={handleShowItemForm}>{showItemForm ? "Close item form" : "Open item form"}</button>
       {showItemForm && <ItemForm />}
+      <div className="items-container">
+        {myShoppingItems && myShoppingItems.map(item =>
+          <SingleItem item={item} key={item._id} />
+          )}
+      </div>
     </div>
   )
 }

@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { PayloadAction } from '@reduxjs/toolkit';
 
 export type Item = {
+  creatorId: string;
   name: string;
   quantity: number;
   _id: string;
