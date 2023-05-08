@@ -1,6 +1,8 @@
 .note-header-container {
-  // border-style: solid;
-  // border-color: black;
+
+  &.selected {
+    background-color: green;
+  }
 
   &:hover {
     cursor: pointer;

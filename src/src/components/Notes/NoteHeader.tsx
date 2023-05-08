@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { Note } from '../../redux/notesSlice';
+import { RootStateNotes, Note } from '../../redux/notesSlice';
 import { setSelectedNote, removeNote } from '../../redux/notesSlice';
 import '../../styling/Notes/NoteHeader.scss';
 
@@ -12,6 +13,7 @@ interface NoteHeaderProps {
 const NoteHeader: React.FC<NoteHeaderProps> = ({ note }) => {
 
   const dispatch = useDispatch();
+  const isSelectedNote = useSelector((state: RootStateNotes) => state.notes.selectedNote?._id === note._id);
 
   const handleSetSelectedNote = () => {
     dispatch(setSelectedNote(note));
@@ -33,7 +35,7 @@ const NoteHeader: React.FC<NoteHeaderProps> = ({ note }) => {
   }
 
   return (
-    <div className="note-header-container" onClick={handleSetSelectedNote}>
+    <div className={`note-header-container${isSelectedNote ? " selected" : ""}`} onClick={handleSetSelectedNote}>
       <button className="note-header-delete-button" onClick={(e) => handleRemoveNote(e)}>X</button>
       <p className="note-header-title">{note.title}</p>
     </div>

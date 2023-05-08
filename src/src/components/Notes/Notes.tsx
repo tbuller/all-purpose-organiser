@@ -42,7 +42,7 @@ const Notes = () => {
       </div>
       <div className="selected-note-content-container">
         {selectedNote && <p>{selectedNote.content}</p>}
-      </div>
+      </div>  
     </div>
   )
 }

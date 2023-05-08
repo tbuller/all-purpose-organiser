@@ -16,7 +16,7 @@ const Landing: React.FC<LandingProps> = ({ navigate }) => {
     fetch("http://localhost:8080/users")
       .then(response => response.json())
       .then(data => {
-        dispatch(setUsers(data.users))
+        dispatch(setUsers(data.users));
       })
   }, [])
 
