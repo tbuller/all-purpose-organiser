@@ -1,4 +1,5 @@
 .event-form-container {
+  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -10,16 +11,28 @@
   width: 25em;
 }
 
+.event-form-date {
+  color: white;
+}
+
 .event-form-label {
   color: #ffffff;
   font-size: 1em;
   margin-bottom: 0.5em;
 }
 
-.event-form-input,
+.event-form-input {
+  width: 95%;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border: none;
+  border-radius: 0.3em;
+}
+
+
 .event-form-select,
 .event-form-time-select {
-  width: 100%;
+  width: 40%;
   padding: 0.5em;
   margin-bottom: 1em;
   border: none;

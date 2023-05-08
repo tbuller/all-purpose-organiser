@@ -52,6 +52,7 @@ const EventForm = () => {
 
   return (
     <div className="event-form-container">
+      <h3 className="event-form-date">{selectedDay}</h3>
       <label className="event-form-label">Event title:</label>
       <input className="event-form-input" type="text" onChange={handleTitle} />
       <select className="event-form-select" onChange={handleType}>
