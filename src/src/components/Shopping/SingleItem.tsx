@@ -14,12 +14,17 @@ const SingleItem: React.FC<SingleItemProps> = ({ item }) => {
 
   const [itemPhotoUrl, setItemPhotoUrl] = useState("");
 
-  // useEffect(() => {
-  //   console.log(secretKey);
-  //   fetch(`https://api.unsplash.com/search/photos?query=${`onion`}&client_id=${secretKey}`)
-  //     .then(response => response.json())
-  //     .then(data => console.log(data))
-  // }, [])
+  useEffect(() => {
+    fetch("http://localhost:8080/unsplash", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ itemName: item.name })
+    })
+      .then(response => response.json())
+      .then(data => console.log(data))
+  })
 
   const handleChangeQuantity = (quantityChange: number) => {
     fetch("http://localhost:8080/shopping", {
