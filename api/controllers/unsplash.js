@@ -1,4 +1,6 @@
-const secretKey = process.env.REACT_APP_UNSPLASH_SECRET_KEY
+require("dotenv").config();
+
+const secretKey = process.env.UNSPLASH_SECRET_KEY
 
 const UnsplashController = {
   RetrieveData: (req, res, next) => {
@@ -14,7 +16,6 @@ const UnsplashController = {
         }
       })
 
-    
   }
 }
 
