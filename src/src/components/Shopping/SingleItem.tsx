@@ -23,7 +23,7 @@ const SingleItem: React.FC<SingleItemProps> = ({ item }) => {
       body: JSON.stringify({ itemName: item.name })
     })
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => setItemPhotoUrl(data.data.results[0].urls.small))
   })
 
   const handleChangeQuantity = (quantityChange: number) => {
@@ -40,6 +40,7 @@ const SingleItem: React.FC<SingleItemProps> = ({ item }) => {
 
   return (
     <span className="individual-shopping-item-container">
+      <img src={itemPhotoUrl} />
       <p>{item.name}</p>
       <p>{item.quantity}</p>
       <button className="change-quantity-button">+</button>
