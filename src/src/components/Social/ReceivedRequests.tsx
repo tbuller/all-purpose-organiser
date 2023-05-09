@@ -8,6 +8,7 @@ import { setMyReceivedRequests } from '../../redux/socialSlice';
 const ReceivedRequests = () => {
 
   const dispatch = useDispatch();
+  const users = useSelector((state: RootStateUsers) => state.users.users);
   const loggedInUser = useSelector((state: RootStateUsers) => state.users.loggedInUser);
   const myReceivedRequests = useSelector((state: RootStateSocial) => state.social.myReceivedRequests);
 
@@ -19,13 +20,14 @@ const ReceivedRequests = () => {
       })
   }, [])
 
-  useEffect(() => {
-    console.log(myReceivedRequests);
-  }, [myReceivedRequests])
-
   return (
     <div className="received-requests-container">
-
+      {myReceivedRequests.map(request => (
+        <div className="individual-received-request-container">
+          <p className="requester-username">{users.find(user => user._id === request.requesterId)?.username}</p>
+          <button className="accept-request-button">Accept request</button>
+        </div>
+      ))}
     </div>
   )
 }
