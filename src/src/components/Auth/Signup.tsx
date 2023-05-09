@@ -38,6 +38,7 @@ const Signup: React.FC<SignupProps> = ({ navigate }) => {
         .then(data => {
           dispatch(addUser(data.user));
         })
+      navigate("/login"); 
     }
   }
 

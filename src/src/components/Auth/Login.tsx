@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootStateUsers } from '../../redux/usersSlice';
-import { setLoggedInUser } from '../../redux/usersSlice';
+import { setUsers, setLoggedInUser } from '../../redux/usersSlice';
 import { RootStateAuth } from '../../redux/authSlice';
 import { setLoginError } from '../../redux/authSlice';
 import LoginError from './LoginError';
@@ -22,6 +22,14 @@ const Login: React.FC<LoginProps> = ({ navigate }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  useEffect(() => {
+    fetch("http://localhost:8080/users")
+      .then(response => response.json())
+      .then(data => {
+        dispatch(setUsers(data.users));
+      })
+  }, [])
+
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
   }
@@ -39,6 +47,7 @@ const Login: React.FC<LoginProps> = ({ navigate }) => {
       navigate("/home");
     } else {
       dispatch(setLoginError(true));
+      console.log(users);
     }
   }
 

@@ -8,7 +8,7 @@ const SearchFriends = () => {
 
   return (
     <div className="search-friends-container">
-
+      
     </div>
   )
 }
