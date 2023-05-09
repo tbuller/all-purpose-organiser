@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { User } from './usersSlice';
 
-type Request = {
+export type Request = {
+  _id: string;
   requesterId: string;
   requesteeId: string;
 }
