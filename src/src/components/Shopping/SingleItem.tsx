@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Item } from '../../redux/shoppingSlice';
-import { changeQuantity } from '../../redux/shoppingSlice';
+import { updateItem } from '../../redux/shoppingSlice';
 
 interface SingleItemProps {
   item: Item;
@@ -35,7 +35,9 @@ const SingleItem: React.FC<SingleItemProps> = ({ item }) => {
       body: JSON.stringify({ itemId: item._id, quantityChange: quantityChange })
     })
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => {
+        dispatch(updateItem(data.shoppingItem));
+      })
   }
 
   return (
@@ -43,8 +45,8 @@ const SingleItem: React.FC<SingleItemProps> = ({ item }) => {
       <img src={itemPhotoUrl} />
       <p>{item.name}</p>
       <p>{item.quantity}</p>
-      <button className="change-quantity-button">+</button>
-      <button className="change-quantity-button">-</button>
+      <button className="change-quantity-button" onClick={() => handleChangeQuantity(1)}>+</button>
+      <button className="change-quantity-button" onClick={() => handleChangeQuantity(-1)}>-</button>
     </span>
   )
 }

@@ -26,18 +26,18 @@ const shoppingSlice = createSlice({
     addItem: (state, action: PayloadAction<Item>) => {
       state.shoppingList.push(action.payload);
     },
-    changeQuantity: (state, action) => {
-      const itemToModify = state.shoppingList.find(item => item._id === action.payload.item._id);
+    updateItem: (state, action: PayloadAction<Item>) => {
+      const itemIndex = state.shoppingList.findIndex(item => item._id === action.payload._id);
 
-      if (itemToModify) {
-        itemToModify.quantity += action.payload.quantityChange;
+      if (itemIndex !== -1) {
+        state.shoppingList[itemIndex] = action.payload;
       }
     }
   }
 })
 
 export default shoppingSlice.reducer;
-export const { setShopping, addItem, changeQuantity } = shoppingSlice.actions;
+export const { setShopping, addItem, updateItem } = shoppingSlice.actions;
 
 export type RootStateShopping = {
   shopping: ShoppingState;

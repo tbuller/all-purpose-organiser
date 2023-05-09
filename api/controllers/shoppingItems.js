@@ -20,7 +20,7 @@ const ShoppingItemsController = {
       }
     })
   },
-  ChangeQuantity: (state, action) => {
+  ChangeQuantity: (req, res, next) => {
     const { itemId, quantityChange } = req.body;
     ShoppingItem.findByIdAndUpdate(itemId, { $inc: { quantity: quantityChange } }, { new: true }, (err, shoppingItem) => {
       if (err) {
