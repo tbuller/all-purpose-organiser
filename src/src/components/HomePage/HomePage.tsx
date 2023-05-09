@@ -35,7 +35,6 @@ const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
   return (
     <div className="home-page-container">
       <NavBar />
-      {loggedInUser && <div className="logged-in-as">{`logged in as ${loggedInUser.username}`}</div>}
       {viewedComponent === "calendar" && <Calendar />}
       {viewedComponent === "shopping" && <Shopping />}
       {viewedComponent === "notes" && <Notes />}
