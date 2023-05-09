@@ -1,11 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { User } from './usersSlice';
 
 type SocialState = {
   myFriends: string[];
+  selectedUser: User | null;
 }
 
 const initialState: SocialState = {
-  myFriends: []
+  myFriends: [],
+  selectedUser: null
 }
 
 const socialSlice = createSlice({
@@ -17,12 +20,15 @@ const socialSlice = createSlice({
     },
     addFriend: (state, action) => {
       state.myFriends.push(action.payload);
+    },
+    setSelectedUser: (state, action) => {
+      state.selectedUser = action.payload;
     }
   }
 })
 
 export default socialSlice.reducer;
-export const { setFriends, addFriend } = socialSlice.actions;
+export const { setFriends, addFriend, setSelectedUser } = socialSlice.actions;
 
 export type RootStateSocial = {
   social: SocialState;
