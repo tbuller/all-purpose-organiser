@@ -5,6 +5,7 @@ import shoppingReducer from './shoppingSlice';
 import calendarReducer from './calendarSlice';
 import navReducer from './navSlice';
 import notesReducer from './notesSlice';
+import socialReducer from './socialSlice';
 
 const store = configureStore({
   reducer: {
@@ -13,7 +14,8 @@ const store = configureStore({
     shopping: shoppingReducer,
     calendar: calendarReducer,
     nav: navReducer,
-    notes: notesReducer
+    notes: notesReducer,
+    social: socialReducer
   }
 })
 
