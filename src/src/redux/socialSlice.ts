@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import MyFriends from '../components/Social/MyFriends';
 import { User } from './usersSlice';
 
 export type Friend = {
@@ -32,7 +33,10 @@ const socialSlice = createSlice({
   initialState,
   reducers: {
     setFriends: (state, action) => {
-      state.myFriends = action.payload;
+      const loggedInUserId = action.payload.loggedInUserId
+      const relevantFriends = action.payload.friends.filter((friend: Friend) => friend.requesterId === loggedInUserId || friend.accepterId === loggedInUserId);
+
+      state.myFriends = relevantFriends;
     },
     addFriend: (state, action) => {
       state.myFriends.push(action.payload);

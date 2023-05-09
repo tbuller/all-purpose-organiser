@@ -26,7 +26,7 @@ const ReceivedRequests = () => {
     fetch("http://localhost:8080/friends")
       .then(response => response.json())
       .then(data => {
-        dispatch(setFriends(data.friends));
+        dispatch(setFriends({ loggedInUserId: loggedInUser?._id, friends: data.friends }));
       })
   }, [])
 
