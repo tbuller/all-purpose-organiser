@@ -26,7 +26,17 @@ const ShoppingItemsController = {
       if (err) {
         res.status(500).json({ message: "Bad request", err: err })
       } else {
-        res.status(200).json({ message: "OK", shoppingItem: shoppingItem });
+        if (shoppingItem && shoppingItem.quantity <= 0) {
+          ShoppingItem.findByIdAndDelete(itemId, (err) => {
+            if (err) {
+              res.status(500).json({ message: "failed to dete item", err: err });
+            } else {
+              res.status(200).json({ message: "Item successfully delete", shoppingItem: null });
+            }            
+          })
+        } else {
+          res.status(200).json({ message: "OK", shoppingItem: shoppingItem });
+        }
       }
     })
   }

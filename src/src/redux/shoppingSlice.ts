@@ -26,11 +26,15 @@ const shoppingSlice = createSlice({
     addItem: (state, action: PayloadAction<Item>) => {
       state.shoppingList.push(action.payload);
     },
-    updateItem: (state, action: PayloadAction<Item>) => {
-      const itemIndex = state.shoppingList.findIndex(item => item._id === action.payload._id);
+    updateItem: (state, action) => {
+      if (action.payload.shoppingItem) {
+        const itemIndex = state.shoppingList.findIndex(item => item._id === action.payload.itemId);
 
-      if (itemIndex !== -1) {
-        state.shoppingList[itemIndex] = action.payload;
+        if (itemIndex !== -1) {
+          state.shoppingList[itemIndex] = action.payload.shoppingItem;
+        }
+      } else {
+        state.shoppingList = state.shoppingList.filter(item => item._id !== action.payload.itemId);
       }
     }
   }
