@@ -39,7 +39,9 @@ const socialSlice = createSlice({
       state.mySentRequests = relevantRequests;
     },
     setMyReceivedRequests: (state, action) => {
-      state.myReceivedRequests = action.payload;
+      const relevantRequests = action.payload.requests.filter((request: Request) => request.requesteeId === action.payload.loggedInUserId);
+
+      state.myReceivedRequests = relevantRequests;
     },
     addMySentRequest: (state, action) => {
       state.mySentRequests.push(action.payload);
