@@ -10,6 +10,7 @@ const ShoppingItemsRouter = require("./routes/shoppingItems");
 const EventsRouter = require("./routes/events");
 const NotesRouter = require("./routes/notes");
 const UnsplashRouter = require("./routes/unsplash");
+const RequestsRouter = require("./routes/requests");
 
 const app = express();
 app.use(fileUpload());
@@ -28,5 +29,6 @@ app.use("/shopping", ShoppingItemsRouter);
 app.use("/events", EventsRouter);
 app.use("/notes", NotesRouter);
 app.use("/unsplash", UnsplashRouter);
+app.use("/requests", RequestsRouter);
 
 module.exports = app;
