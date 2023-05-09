@@ -1,0 +1,10 @@
+.items-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item-form-wrapper {
+  display: flex;
+  justify-content: center;
+  z-index: 5;
+}

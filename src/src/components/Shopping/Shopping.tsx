@@ -6,6 +6,7 @@ import { RootStateShopping, Item } from '../../redux/shoppingSlice';
 import { setShopping } from '../../redux/shoppingSlice';
 import ItemForm from './ItemForm';
 import SingleItem from './SingleItem';
+import '../../styling/Shopping/Shopping.scss';
 
 const Shopping = () => {
 
@@ -30,7 +31,9 @@ const Shopping = () => {
   return (
     <div className="shopping-page-container">
       <button onClick={handleShowItemForm}>{showItemForm ? "Close item form" : "Open item form"}</button>
-      {showItemForm && <ItemForm />}
+      <div className="item-form-wrapper">
+      {showItemForm && <ItemForm setShowItemForm={setShowItemForm} />}
+      </div>
       <div className="items-container">
         {myShoppingItems && myShoppingItems.map(item =>
           <SingleItem item={item} key={item._id} />

@@ -1,0 +1,81 @@
+.item-form-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1em;
+  background-color: #2e2a7d;
+  border-radius: 0.7em;
+  margin: 1em;
+  height: 20em;
+  width: 25em;
+}
+
+.item-form-header {
+  color: white;
+}
+
+.item-name-label,
+.item-quantity-label {
+  color: #ffffff;
+  font-size: 1em;
+  margin-bottom: 0.5em;
+}
+
+.item-name-input {
+  width: 95%;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border: none;
+  border-radius: 0.3em;
+  background-color: #ffffff;
+}
+
+.item-quantity-buttons-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.item-quantity-button {
+  height: 1.8em;
+  width: 1.8em;
+  margin-right: 0.5em;
+  background-color: #07ebc1;
+  border: none;
+  border-radius: 3em;
+  color: #2e2a7d;
+  font-size: 1.2em;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #ffffff;
+    color: #2e2a7d;
+  }
+
+  &.minus {
+    padding-bottom: 0.2em;
+  }
+}
+
+.item-form-quantity-text {
+  color: white;
+  font-size: 1.6em;
+  margin-top: 1.2em;
+  margin-left: 0.5em;
+}
+
+.create-item-button {
+  padding: 0.5em 1em;
+  background-color: #07ebc1;
+  border: none;
+  border-radius: 0.3em;
+  color: #2e2a7d;
+  font-size: 1em;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #ffffff;
+    color: #2e2a7d;
+  }
+}
