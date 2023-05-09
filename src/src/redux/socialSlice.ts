@@ -1,6 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { User } from './usersSlice';
 
+export type Friend = {
+  _id: string;
+  requesterId: string;
+  accepterId: string;
+}
+
 export type Request = {
   _id: string;
   requesterId: string;
