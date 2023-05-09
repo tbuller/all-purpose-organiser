@@ -10,6 +10,7 @@ import NavBar from '../Nav/NavBar';
 import Calendar from '../Calendar/Calendar';
 import Shopping from '../Shopping/Shopping'
 import Notes from '../Notes/Notes';
+import Social from '../Social/Social';
 import '../../styling/HomePage/HomePage.scss';
 
 interface HomePageProps {
@@ -38,6 +39,7 @@ const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
       {viewedComponent === "calendar" && <Calendar />}
       {viewedComponent === "shopping" && <Shopping />}
       {viewedComponent === "notes" && <Notes />}
+      {viewedComponent === "social" && <Social />}
     </div>
   )
 }
