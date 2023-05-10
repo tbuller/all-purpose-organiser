@@ -15,6 +15,10 @@ const ReceivedRequests = () => {
   const myFriends = useSelector((state: RootStateSocial) => state.social.myFriends);
 
   useEffect(() => {
+    console.log(myFriends);
+  }, [myFriends])
+
+  useEffect(() => {
     fetch("http://localhost:8080/requests")
       .then(response => response.json())
       .then(data => {
@@ -49,7 +53,7 @@ const ReceivedRequests = () => {
       {myReceivedRequests.map(request => (
         <div className="individual-received-request-container" key={request._id}>
           <p className="requester-username">{users.find(user => user._id === request.requesterId)?.username}</p>
-          <button className="accept-request-button" onClick={() => acceptRequest(request)}>{myFriends ? myFriends.find((friend: Friend | any) => friend.accepterId === loggedInUser?._id) ? "Request accepted" : "Accept request" : "Accept request"}</button>
+          <button className="accept-request-button" onClick={() => acceptRequest(request)}>{myFriends ? myFriends.find((friend: Friend | any) => friend.requesterId === request.requesterId) ? "Request accepted" : "Accept request" : "Accept request"}</button>
         </div>
       ))}
     </div>

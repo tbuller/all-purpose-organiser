@@ -5,6 +5,7 @@ import { RootStateUsers, User } from '../../redux/usersSlice';
 import { setUsers } from '../../redux/usersSlice';
 import { RootStateSocial } from '../../redux/socialSlice';
 import { setMySentRequests, addMySentRequest } from '../../redux/socialSlice';
+import '../../styling/Social/SearchFriends.scss';
 
 const SearchFriends = () => {
 
@@ -68,7 +69,7 @@ const SearchFriends = () => {
           {filteredResults.slice(0, 5).map((user) => (
             <li className="search-friends-drop-down-item" key={user._id}>
               <p className="drop-down-username">{user.username}</p>
-              <button className="drop-down-button" onClick={() => sendRequest(user)}>Connect</button>
+              <button className="drop-down-button" onClick={() => sendRequest(user)}>{mySentRequests.find(request => request.requesteeId === user._id) ? "Request sent" : "Connect"}</button>
             </li>
           ))}
         </ul>
