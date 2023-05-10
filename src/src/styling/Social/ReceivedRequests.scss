@@ -1,0 +1,45 @@
+.received-requests-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em;
+  border-radius: 0.7em;
+  margin: 1em;
+  width: 30%;
+  position: absolute;
+  left: 0;
+  top: 12%;
+
+  .individual-received-request-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 0.3em;
+    padding: 0.5em 1em;
+    margin-bottom: 1em;
+    width: 100%;
+    background-color: #2e2a7d;
+  }
+
+  .requester-username {
+    color: #ffffff;
+    font-size: 1.5em;
+  }
+
+  .accept-request-button {
+    padding: 0.3em 1em;
+    background-color: #07ebc1;
+    border: none;
+    border-radius: 0.3em;
+    color: #2e2a7d;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+
+    &:hover {
+      background-color: #ffffff;
+      color: #2e2a7d;
+    }
+  }
+}

@@ -39,7 +39,6 @@ const SearchFriends = () => {
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
-    console.log(filteredResults);
   }
 
   const sendRequest = (user: User) => {

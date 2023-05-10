@@ -5,6 +5,7 @@ import { setUsers } from '../../redux/usersSlice';
 import MyFriends from './MyFriends';
 import SearchFriends from './SearchFriends';
 import ReceivedRequests from './ReceivedRequests';
+import SentRequests from './SentRequests';
 import '../../styling/Social/Social.scss';
 
 const Social = () => {
@@ -27,10 +28,12 @@ const Social = () => {
         <button className={`view-myfriends-button${viewPage === "myfriends" ? " selected" : ""}`} onClick={() => setViewPage("myfriends")}>View friends</button>
         <button className={`seach-friends-button${viewPage === "searchfriends" ? " selected" : ""}`} onClick={() => setViewPage("searchfriends")}>Search for friends</button>
         <button className={`received-requests-button${viewPage === "receivedrequests" ? " selected" : ""}`} onClick={() => setViewPage("receivedrequests")}>View my received requests</button>
+        <button className={`sent-requests-button${viewPage === "sentrequests" ? " selected" : ""}`} onClick={() => setViewPage("sentrequests")}>View my sent requests</button>
       </span>
       {viewPage === "myfriends" && <MyFriends />}
       {viewPage === "searchfriends" && <SearchFriends />}
       {viewPage === "receivedrequests" && <ReceivedRequests />}
+      {viewPage === "sentrequests" && <SentRequests />}
     </div>
   )
 }

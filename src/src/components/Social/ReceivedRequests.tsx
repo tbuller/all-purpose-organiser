@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootStateUsers } from '../../redux/usersSlice';
 import { RootStateSocial, Friend, Request } from '../../redux/socialSlice';
 import { setMyReceivedRequests, setFriends, addFriend } from '../../redux/socialSlice';
-import { findRenderedComponentWithType } from 'react-dom/test-utils';
+import '../../styling/Social/ReceivedRequests.scss';
 
 const ReceivedRequests = () => {
 

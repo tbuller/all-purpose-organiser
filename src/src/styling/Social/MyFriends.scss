@@ -1,0 +1,29 @@
+.myfriends-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em;
+  border-radius: 0.7em;
+  margin: 1em;
+  width: 25em;
+  position: absolute;
+  top: 12%;
+  left: 0;
+
+
+  .individual-friend-container {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    border-radius: 0.3em;
+    padding: 0.5em 1em;
+    margin-bottom: 1em;
+    width: 100%;
+    background-color: #2e2a7d;
+  }
+
+  .individual-friend-username {
+    color: #ffffff;
+    font-size: 1.5em;
+  }
+}

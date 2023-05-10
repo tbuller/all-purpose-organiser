@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootStateUsers, User } from '../../redux/usersSlice';
 import { RootStateSocial, Friend } from '../../redux/socialSlice';
 import { setFriends } from '../../redux/socialSlice';
+import '../../styling/Social/MyFriends.scss';
 
 const MyFriends = () => {
 
@@ -24,7 +25,7 @@ const MyFriends = () => {
     <div className="myfriends-container">
       {myFriends && myFriends.map((friend: Friend | any) => (
         <div className="individual-friend-container" key={friend._id}>
-          <p>{users.find((user: User) => (user._id === friend.requesterId || user._id === friend.accepterId) && user._id !== loggedInUser?._id)?.username}</p>
+          <p className="individual-friend-username">{users.find((user: User) => (user._id === friend.requesterId || user._id === friend.accepterId) && user._id !== loggedInUser?._id)?.username}</p>
         </div>
       ))}
     </div>
