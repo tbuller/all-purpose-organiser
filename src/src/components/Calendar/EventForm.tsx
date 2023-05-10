@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootStateCalendar } from '../../redux/calendarSlice';
 import { addEvent } from '../../redux/calendarSlice';
 import { RootStateUsers, User } from '../../redux/usersSlice';
+import { setUsers } from '../../redux/usersSlice';
 import { RootStateSocial, Friend } from '../../redux/socialSlice';
 import { setFriends } from '../../redux/socialSlice';
 import TimeDropdown from './TimeDropdown';
@@ -27,6 +28,14 @@ const EventForm = () => {
       .then(response => response.json())
       .then(data => {
         dispatch(setFriends({ loggedInUserId: loggedInUser?._id, friends: data.friends }));
+      })
+  }, [])
+
+  useEffect(() => {
+    fetch("http://localhost:8080/users")
+      .then(response => response.json())
+      .then(data => {
+        dispatch(setUsers(data.users));
       })
   }, [])
 
