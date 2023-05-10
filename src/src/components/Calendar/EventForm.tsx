@@ -20,7 +20,7 @@ const EventForm = () => {
 
   const [title, setTitle] = useState("");
   const [type, setType] = useState("");
-  const [people, setPeople] = useState("");
+  const [people, setPeople] = useState<string[]>([]);
   const [time, setTime] = useState("");
 
   useEffect(() => {
@@ -63,8 +63,12 @@ const EventForm = () => {
   }
 
   const handlePeople = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setPeople(event.target.value);
+    setPeople(prevPeople => [...prevPeople, event.target.value]);
   }
+
+  useEffect(() => {
+    console.log(people);
+  }, [people])
 
   const handleTime = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setTime(event.target.value);
