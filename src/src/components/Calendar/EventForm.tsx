@@ -3,7 +3,9 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootStateCalendar } from '../../redux/calendarSlice';
 import { addEvent } from '../../redux/calendarSlice';
-import { RootStateUsers } from '../../redux/usersSlice';
+import { RootStateUsers, User } from '../../redux/usersSlice';
+import { RootStateSocial, Friend } from '../../redux/socialSlice';
+import { setFriends } from '../../redux/socialSlice';
 import TimeDropdown from './TimeDropdown';
 import '../../styling/Calendar/EventForm.scss';
 
@@ -11,12 +13,22 @@ const EventForm = () => {
 
   const dispatch = useDispatch();
   const selectedDay = useSelector((state: RootStateCalendar) => state.calendar.selectedDay);
+  const users = useSelector((state : RootStateUsers) => state.users.users);
   const loggedInUser = useSelector((state: RootStateUsers) => state.users.loggedInUser);
+  const myFriends = useSelector((state: RootStateSocial) => state.social.myFriends);
 
   const [title, setTitle] = useState("");
   const [type, setType] = useState("");
   const [people, setPeople] = useState("");
   const [time, setTime] = useState("");
+
+  useEffect(() => {
+    fetch("http://localhost:8080/friends")
+      .then(response => response.json())
+      .then(data => {
+        dispatch(setFriends({ loggedInUserId: loggedInUser?._id, friends: data.friends }));
+      })
+  }, [])
 
   const createEvent = () => {
     fetch("http://localhost:8080/events", {
@@ -41,7 +53,7 @@ const EventForm = () => {
     console.log(type);
   }
 
-  const handlePeople = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handlePeople = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setPeople(event.target.value);
   }
 
@@ -68,7 +80,17 @@ const EventForm = () => {
         <option className="event-form-option" value="religious_spiritual">Religious / Spiritual</option>
       </select>
       <label className="event-form-label">invite people (optional):</label>
-      <input className="event-form-input" type="text" onChange={handlePeople} />
+      <select className="event-form-select" onChange={handlePeople}>
+      <option value="">Select a friend</option>
+      {myFriends.map((friend: Friend | any) => {
+        const user = users.find((user: User | any) => (user._id === friend.requesterId || user._id === friend.accepterId) && user._id !== loggedInUser?._id);
+        return (
+        <option key={user?._id} value={user?._id}>
+          {user?.username}
+        </option>
+        );
+      })}
+    </select>
       <label className="event-form-label">Select a time:</label>
       <TimeDropdown onChange={handleTime} />
       <button className="event-form-create-event-button" onClick={createEvent}>Create event</button>
