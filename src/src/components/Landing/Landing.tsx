@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setUsers } from '../../redux/usersSlice'
+import '../../styling/Landing/Landing.scss';
 
 interface LandingProps {
   navigate: ReturnType<typeof useNavigate>;
@@ -30,8 +31,9 @@ const Landing: React.FC<LandingProps> = ({ navigate }) => {
 
   return (
     <div className="landing-page-container">
-      <button onClick={navigateLogin}>Login</button>
-      <button onClick={navigateSignup}>Sign up</button>
+      <h1 className="landing-welcome-message">Welcome to all-purpose-organiser</h1>
+      <button className="landing-page-button" onClick={navigateLogin}>Login</button>
+      <button className="landing-page-button" onClick={navigateSignup}>Sign up</button>
     </div>
   )
 }
