@@ -6,6 +6,7 @@ import calendarReducer from './calendarSlice';
 import navReducer from './navSlice';
 import notesReducer from './notesSlice';
 import socialReducer from './socialSlice';
+import invitesReducer from "./invitesSlice";
 
 const store = configureStore({
   reducer: {
@@ -15,7 +16,8 @@ const store = configureStore({
     calendar: calendarReducer,
     nav: navReducer,
     notes: notesReducer,
-    social: socialReducer
+    social: socialReducer,
+    invites: invitesReducer
   }
 })
 

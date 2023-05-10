@@ -66,10 +66,6 @@ const EventForm = () => {
     setPeople(prevPeople => [...prevPeople, event.target.value]);
   }
 
-  useEffect(() => {
-    console.log(people);
-  }, [people])
-
   const handleTime = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setTime(event.target.value);
     console.log(time);
