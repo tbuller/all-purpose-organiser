@@ -12,6 +12,7 @@ const NotesRouter = require("./routes/notes");
 const UnsplashRouter = require("./routes/unsplash");
 const RequestsRouter = require("./routes/requests");
 const FriendsRouter = require("./routes/friends");
+const InvitesRouter = require("./routes/invites");
 
 const app = express();
 app.use(fileUpload());
@@ -32,5 +33,6 @@ app.use("/notes", NotesRouter);
 app.use("/unsplash", UnsplashRouter);
 app.use("/requests", RequestsRouter);
 app.use("/friends", FriendsRouter);
+app.use("/invites", InvitesRouter);
 
 module.exports = app;
