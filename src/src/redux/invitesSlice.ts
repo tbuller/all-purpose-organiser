@@ -28,7 +28,7 @@ const invitesSlice = createSlice({
 })
 
 export default invitesSlice.reducer;
-const { setInvites, addInvite } = invitesSlice.actions;
+export const { setInvites, addInvite } = invitesSlice.actions;
 
 export type RootStateInvites = {
   invites: InvitesState;

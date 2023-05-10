@@ -7,6 +7,7 @@ import { RootStateUsers, User } from '../../redux/usersSlice';
 import { setUsers } from '../../redux/usersSlice';
 import { RootStateSocial, Friend } from '../../redux/socialSlice';
 import { setFriends } from '../../redux/socialSlice';
+import { addInvite } from '../../redux/invitesSlice';
 import TimeDropdown from './TimeDropdown';
 import '../../styling/Calendar/EventForm.scss';
 
@@ -50,6 +51,22 @@ const EventForm = () => {
       .then(response => response.json())
       .then(data => {
         dispatch(addEvent(data.event));
+
+        if (data.event.people.length >= 1) {
+          data.event.people.forEach((person: string) => {
+            fetch("http://localhost:8080/invites", {
+            method: "post",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ eventId: data.event._id, inviterId: loggedInUser?._id, inviteeId: person })
+          })
+            .then(response => response.json())
+            .then(data => {
+              dispatch(addInvite(data.invite));
+            })
+          })
+        }
       })
   }
 
