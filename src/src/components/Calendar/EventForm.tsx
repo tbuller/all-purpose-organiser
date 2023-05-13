@@ -59,7 +59,7 @@ const EventForm = () => {
             headers: {
               "Content-Type": "application/json"
             },
-            body: JSON.stringify({ eventId: data.event._id, inviterId: loggedInUser?._id, inviteeId: person })
+            body: JSON.stringify({ eventId: data.event._id, inviterId: loggedInUser?._id, inviteeId: person, inviteDay: data.event.day })
           })
             .then(response => response.json())
             .then(data => {

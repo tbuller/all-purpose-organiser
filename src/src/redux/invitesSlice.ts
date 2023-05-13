@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export type Invite = {
+  _id: string;
   eventId: string;
   inviterId: string;
   inviteeId: string;
@@ -24,12 +25,15 @@ const invitesSlice = createSlice({
     },
     addInvite: (state, action) => {
       state.invites.push(action.payload);
+    },
+    removeInvite: (state, action) => {
+      state.invites = state.invites.filter(invite => invite._id !== action.payload._id);
     }
   }
 })
 
 export default invitesSlice.reducer;
-export const { setInvites, addInvite } = invitesSlice.actions;
+export const { setInvites, addInvite, removeInvite } = invitesSlice.actions;
 
 export type RootStateInvites = {
   invites: InvitesState;

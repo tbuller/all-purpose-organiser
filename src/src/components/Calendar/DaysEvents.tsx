@@ -9,7 +9,7 @@ import '../../styling/Calendar/DaysEvents.scss';
 
 interface DaysEventsProps {
   events: Event[];
-  invites: Invite[];
+  invites: Invite[] | boolean;
 }
 
 const DaysEvents: React.FC<DaysEventsProps> = ({ events, invites }) => {
@@ -31,6 +31,18 @@ const DaysEvents: React.FC<DaysEventsProps> = ({ events, invites }) => {
       })
   }
 
+  const declineInvite = (inviteId: string) => {
+    fetch("http://localhost:8080/invites", {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ inviteToDeleteId: inviteId })
+    })
+      .then(response => response.json())
+      .then(data => console.log(data))
+  }
+
   return (
     <div className="days-events-container">
       <div className="events-wrapper">
@@ -41,16 +53,18 @@ const DaysEvents: React.FC<DaysEventsProps> = ({ events, invites }) => {
         </div>
         )}
       </div>
-      <div className="invites-wrapper">
+      {Array.isArray(invites) && <div className="invites-wrapper">
         {invites.map((invite: Invite) => {
         const event = allEvents.find(event => invite.eventId === event._id);
         return event && (
           <div className="individual-invite-container" key={event._id}>
             <div className="invite-title">{event.title}</div>
+            <button className="accept-invite-button">Yes</button>
+            <button className="decline-invite-button">No</button>
           </div>
         )
-  })}
-    </div> 
+      })}
+    </div>} 
     </div>
   )
 }

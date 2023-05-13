@@ -16,7 +16,7 @@ const SelectedDay = () => {
   const selectedDay = useSelector((state: RootStateCalendar) => state.calendar.selectedDay);
   const isDaySelected = useSelector((state: RootStateCalendar) => state.calendar.isDaySelected);
   const myDaysEvents = useSelector((state: RootStateCalendar) => state.calendar.events.filter((event: Event) => event.day === selectedDay && event.creatorId === loggedInUser?._id));
-  const myDaysInvites = useSelector((state: RootStateInvites) => state.invites.invites.filter((invite: Invite) => invite.inviteDay === selectedDay && invite.inviteeId === loggedInUser?._id));
+  const myDaysInvites = useSelector((state: RootStateInvites) => state.invites.invites.length > 1 && state.invites.invites.filter((invite: Invite) => invite.inviteDay === selectedDay && invite.inviteeId === loggedInUser?._id));
 
   const [showForm, setShowForm] = useState(false);
 
