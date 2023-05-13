@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-type Invite = {
+export type Invite = {
   eventId: string;
   inviterId: string;
   inviteeId: string;
+  inviteDay: string;
 }
 
 type InvitesState = {
