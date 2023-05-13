@@ -42,12 +42,15 @@ const DaysEvents: React.FC<DaysEventsProps> = ({ events, invites }) => {
         )}
       </div>
       <div className="invites-wrapper">
-        {invites.map(invite => allEvents.find((event: Event) => event._id === invite.eventId) &&
+        {invites.map((invite: Invite) => {
+        const event = allEvents.find(event => invite.eventId === event._id);
+        return event && (
           <div className="individual-invite-container" key={event._id}>
             <div className="invite-title">{event.title}</div>
-          </div>  
-          )}
-      </div>  
+          </div>
+        )
+  })}
+    </div> 
     </div>
   )
 }
