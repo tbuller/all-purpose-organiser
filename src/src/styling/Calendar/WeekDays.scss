@@ -1,0 +1,18 @@
+.calendar-week-days-container {
+  display: flex;
+  margin-left: 0.2em;
+  margin-top: 7em;
+}
+
+.individual-week-day-container {
+  height: 35em;
+  width: 17em;
+  margin-right: 1em;
+  border: solid;
+  border-color: #2e2a7d;
+  border-radius: 0.4em;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

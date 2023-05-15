@@ -19,7 +19,7 @@ const Week = () => {
 
   return (
     <div className="week-container">
-      <h2 className="week-title">Week name</h2>
+      <h2 className="week-title">{daysOfWeek[0]}</h2>
       <div className="week-navigation-buttons-container">
         <button className="week-navigate-button" onClick={() => handleSelectedWeekChange(-1)}><AiOutlineArrowLeft /></button>
         <button className="week-navigate-button" onClick={() => handleSelectedWeekChange(1)}><AiOutlineArrowRight /></button>

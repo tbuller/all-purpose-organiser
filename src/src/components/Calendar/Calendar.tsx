@@ -30,7 +30,7 @@ const Calendar = () => {
   }, [selectedMonth])
 
   useEffect(() => {
-    getDaysOfWeek();
+    getDaysOfWeek(selectedWeek);
   }, [selectedWeek])
 
   const getDaysOfMonth = () => {
@@ -45,20 +45,20 @@ const Calendar = () => {
     dispatch(setDaysOfMonth(days));
   }
 
-  const getDaysOfWeek = () => {
+  const getDaysOfWeek = (selectedWeek: number) => {
     const now = new Date();
-    const dayOfWeek = now.getDay();
-    const numDay = now.getDate();
-  
-    const start = new Date(now);
-    start.setDate(numDay - dayOfWeek);
-    start.setHours(0, 0, 0, 0);
-  
+    const startOfYear = new Date(now.getFullYear(), 0, 1);
+    const startOfWeek = new Date(startOfYear.getTime() + (selectedWeek - 1) * 7 * 24 * 60 * 60 * 1000);
+    const dayOfWeek = startOfWeek.getDay();
+
+    startOfWeek.setDate(startOfWeek.getDate() - dayOfWeek);
+    startOfWeek.setHours(0, 0, 0, 0);
+
     const days = Array.from({length: 7}, (val, i) => {
-      const date = new Date(start);
-      date.setDate(start.getDate() + i);
-      return date.toLocaleDateString('en-US', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' });
-    });
+    const date = new Date(startOfWeek);
+    date.setDate(startOfWeek.getDate() + i);
+    return date.toLocaleDateString('en-US', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' });
+  });
 
     dispatch(setDaysOfWeek(days));
   }

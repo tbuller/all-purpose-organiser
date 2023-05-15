@@ -1,0 +1,30 @@
+.week-title {
+  position: absolute;
+  top: 3%;
+  margin-left: 0.4em;
+  text-decoration: underline;
+}
+
+.week-navigation-buttons-container {
+  position: absolute;
+  top: 1.2%;
+  margin-left: 12em;
+}
+
+.week-navigate-button {
+  height: 2em;
+  width: 2em;
+  padding-top: 0.1em;
+  margin-left: 1em;
+  background-color: #07ebc1;
+  border: none;
+  border-radius: 2em;
+  color: #2e2a7d;
+  font-size: 1em;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #2e2a7d;
+    color: white;
+  }
+}
