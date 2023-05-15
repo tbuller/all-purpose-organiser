@@ -1,8 +1,21 @@
 # all-purpose-organiser
 
+<div>
+
+<h5 align="center">
+<a href='https://github.com/tbuller/all-purpose-organiser/blob/main/README.md#Demo'> Demo </a> <span> · </span>  
+<a href='https://github.com/tbuller/all-purpose-organiser/blob/main/README.md#Tech'> Tech </a> <span> · </span>
+<a href='https://github.com/tbuller/all-purpose-organiser/blob/main/README.md#Spec'> Spec </a> <span> · </span>
+<a href='https://github.com/tbuller/all-purpose-organiser/blob/main/README.md#Installation'> Installation </a><span> · </span>
+<a href='https://github.com/tbuller/all-purpose-organiser/blob/main/README.md#Features'> Features </a>
+<h5>
+</div>
+
+# Demo
+
 A planning application with multiple functionalities to help improve your organisation. This application is developed using the React framework, using Redux for state management and TypeScript.
 
-# Tech Stack
+# Tech
 
 ![Image](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Image](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
@@ -35,3 +48,20 @@ npm start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to view the app in your browser.
+  
+# Features
+  
+<div>
+
+<h5 align="center">
+<a href='https://github.com/tbuller/all-purpose-organiser/blob/main/README.md#Calendar'> Calendar </a> <span> · </span>  
+<a href='https://github.com/tbuller/all-purpose-organiser/blob/main/README.md#Shopping-basket'> Shopping-basket </a> <span> · </span>
+<a href='https://github.com/tbuller/all-purpose-organiser/blob/main/README.md#Notes'> Notes </a>
+<h5>
+</div>  
+  
+## Calendar
+  
+## Shopping-basket
+  
+## Notes  
