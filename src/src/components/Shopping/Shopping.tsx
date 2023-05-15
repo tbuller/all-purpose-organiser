@@ -30,7 +30,7 @@ const Shopping = () => {
 
   return (
     <div className="shopping-page-container">
-      <button onClick={handleShowItemForm}>{showItemForm ? "Close item form" : "Open item form"}</button>
+      <button className="show-item-form-button" onClick={handleShowItemForm}>{showItemForm ? "Close item form" : "Add item to basket"}</button>
       <div className="item-form-wrapper">
       {showItemForm && <ItemForm setShowItemForm={setShowItemForm} />}
       </div>

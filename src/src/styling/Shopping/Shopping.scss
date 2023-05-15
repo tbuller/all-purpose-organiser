@@ -1,3 +1,21 @@
+.show-item-form-button {
+  width: 12em;
+  padding: 0.5em 1em;
+  background-color: #07ebc1;
+  border: none;
+  border-radius: 0.3em;
+  color: #2e2a7d;
+  font-size: 1em;
+  margin-top: 1em;
+  margin-left: 1em;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #ffffff;
+    color: #2e2a7d;
+  }
+}
+
 .items-container {
   display: flex;
   flex-wrap: wrap;
