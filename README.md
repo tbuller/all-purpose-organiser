@@ -64,16 +64,16 @@ Open [http://localhost:3000](http://localhost:3000) to view the app in your brow
   
 ## Calendar
   
-[!Image](https://github.com/tbuller/all-purpose-organiser/blob/main/src/public/README_images/all-purpose-organiser-calendar-month-screenshot.png) 
+![Image](https://github.com/tbuller/all-purpose-organiser/blob/main/src/public/README_images/all-purpose-organiser-calendar-month-screenshot.png) 
   
-[!Image](https://github.com/tbuller/all-purpose-organiser/blob/main/src/public/README_images/all-purpose-organiser-calendar-week-screenshot.png)  
+![Image](https://github.com/tbuller/all-purpose-organiser/blob/main/src/public/README_images/all-purpose-organiser-calendar-week-screenshot.png)  
   
-[!Image](https://github.com/tbuller/all-purpose-organiser/blob/main/src/public/README_images/all-purpose-organiser-selected-day-screenshot.png)  
+![Image](https://github.com/tbuller/all-purpose-organiser/blob/main/src/public/README_images/all-purpose-organiser-selected-day-screenshot.png)  
   
 ## Shopping-basket
   
-[!Image](https://github.com/tbuller/all-purpose-organiser/blob/main/src/public/README_images/all-purpose-organiser-shopping-basket-screenshot.png)  
+![Image](https://github.com/tbuller/all-purpose-organiser/blob/main/src/public/README_images/all-purpose-organiser-shopping-basket-screenshot.png)  
   
 ## Notes  
   
-[!Image](https://github.com/tbuller/all-purpose-organiser/blob/main/src/public/README_images/all-purpose-organiser-notes-screenshot.png)  
+![Image](https://github.com/tbuller/all-purpose-organiser/blob/main/src/public/README_images/all-purpose-organiser-notes-screenshot.png)  
