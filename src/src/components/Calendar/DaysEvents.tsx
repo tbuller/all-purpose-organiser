@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Event } from '../../redux/calendarSlice';
 import { removeEvent } from '../../redux/calendarSlice';
@@ -26,12 +27,27 @@ const DaysEvents: React.FC<DaysEventsProps> = ({ events }) => {
       })
   }
 
+  useEffect(() => {
+    console.log(events);
+  }, [])
+
   return (
     <div className="days-events-container">
       <div className="events-wrapper">
-      {events.map(event =>
+      {events
+      .sort((a, b) => {
+        const [aHours, aMinutes] = a.time.split(':').map(Number);
+        const [bHours, bMinutes] = b.time.split(':').map(Number);
+    
+        const aTotalMinutes = aHours * 60 + aMinutes;
+        const bTotalMinutes = bHours * 60 + bMinutes;
+    
+        return aTotalMinutes - bTotalMinutes;
+      })
+      .map(event =>
         <div className={`individual-event-container ${event.type}`} key={event._id} >
           <div className="event-title">{event.title}</div>
+          <div className="event-time">{event.time}</div>
           <button className="delete-event-button-days-events" onClick={() => handleRemoveEvent(event)}>Delete event</button>
         </div>
         )}

@@ -40,21 +40,63 @@
 
 .day-component-individual-event-container {
   display: flex;
-  margin-left: 0.5em;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 0.15em;
   margin-bottom: 0.2em;
+  border-radius: 0.3em;
+  padding: 0.2em;
+  width: 92%;
+
+  &.meeting {
+    background-color: #007BFF;
+  }
+
+  &.social_event {
+    background-color: #28A745;
+  }
+
+  &.appointment {
+    background-color: #FFC107;
+  }
+
+  &.workout_exercise {
+    background-color: #DC3545;
+  }
+
+  &.educational {
+    background-color: #6F42C1;
+  }
+
+  &.celebration {
+    background-color: #E83E8C;
+  }
+
+  &.reminder {
+    background-color: #17A2B8;
+  }
+
+  &.travel {
+    background-color: #FD7E14;
+  }
+
+  &.entertainment {
+    background-color: #6C757D;
+  }
+
+  &.religious_spiritual {
+    background-color: #343A40;
+  }
 }
 
 .day-component-event-title {
   margin: 0em;
   margin-right: 1em;
-}
-
-.day-component-event-time {
-  margin: 0em;
+  color: white;
 }
 
 .day-component-event-button {
-  margin-left: 0.5em;
+  float: right;
   border: none;
   border-radius: 2em;
   background-color: white;

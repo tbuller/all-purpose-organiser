@@ -53,9 +53,8 @@ const Days = () => {
               return aTotalMinutes - bTotalMinutes;
             })
             .map(event => 
-              <span className="day-component-individual-event-container" key={event._id}>
+              <span className={`day-component-individual-event-container ${event.type}`} key={event._id}>
                 <p className="day-component-event-title">{event.title}</p>
-                <p className="day-component-event-time">{event.time}</p>
                 <button className="day-component-event-button" onClick={(e) => handleRemoveEvent(event, e)}>X</button>
               </span>  
               )}

@@ -10,7 +10,11 @@ import { setFriends } from '../../redux/socialSlice';
 import TimeDropdown from './TimeDropdown';
 import '../../styling/Calendar/EventForm.scss';
 
-const EventForm = () => {
+interface EventFormProps {
+  setShowForm: (value: boolean) => void;
+}
+
+const EventForm = ({ setShowForm }: EventFormProps) => {
 
   const dispatch = useDispatch();
   const selectedDay = useSelector((state: RootStateCalendar) => state.calendar.selectedDay);
@@ -50,6 +54,7 @@ const EventForm = () => {
       .then(response => response.json())
       .then(data => {
         dispatch(addEvent(data.event));
+        setShowForm(false);
       })
   }
 
