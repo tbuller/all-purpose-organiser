@@ -5,7 +5,11 @@ import { RootStateUsers } from '../../redux/usersSlice';
 import { addNote } from '../../redux/notesSlice';
 import '../../styling/Notes/NoteForm.scss';
 
-const NoteForm = () => {
+interface NoteFormProps {
+  setOpenNoteForm: (value: boolean) => void;
+}
+
+const NoteForm = ({ setOpenNoteForm }: NoteFormProps) => {
 
   const dispatch = useDispatch();
   const loggedInUser = useSelector((state: RootStateUsers) => state.users.loggedInUser);
@@ -24,6 +28,7 @@ const NoteForm = () => {
       .then(response => response.json())
       .then(data => {
         dispatch(addNote(data.note));
+        setOpenNoteForm(false);
       })
   }
 

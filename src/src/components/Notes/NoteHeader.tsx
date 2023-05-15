@@ -36,8 +36,8 @@ const NoteHeader: React.FC<NoteHeaderProps> = ({ note }) => {
 
   return (
     <div className={`note-header-container${isSelectedNote ? " selected" : ""}`} onClick={handleSetSelectedNote}>
+      <div className="note-header-title">{note.title}</div>
       <button className="note-header-delete-button" onClick={(e) => handleRemoveNote(e)}>X</button>
-      <p className="note-header-title">{note.title}</p>
     </div>
   )
 }

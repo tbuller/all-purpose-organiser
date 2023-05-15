@@ -31,11 +31,12 @@ const Notes = () => {
 
   return (
     <div className="notes-page-container">
-      <button className="open-notes-form-button" onClick={handleNoteFormOpen}>{openNoteForm ? "Close note form" : "Open note form"}</button>
+      <button className="open-notes-form-button" onClick={handleNoteFormOpen}>{openNoteForm ? "Close note form" : "Create new note"}</button>
       <div className="note-form-wrapper">
-      {openNoteForm && <NoteForm />}
+      {openNoteForm && <NoteForm setOpenNoteForm={setOpenNoteForm} />}
       </div>
       <div className="notes-display-container">
+        <h2 className="notes-display-header">My notes</h2>
         {myNotes.map(note => 
             <NoteHeader note={note} key={note._id} />
           )}
