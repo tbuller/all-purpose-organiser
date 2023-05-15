@@ -59,6 +59,9 @@ const calendarSlice = createSlice({
     setDaysOfMonth: (state, action) => {
       state.daysOfMonth = action.payload
     },
+    setSelectedWeek: (state, action) => {
+      state.selectedWeek += action.payload;
+    },
     setDaysOfWeek: (state, action) => {
       state.daysOfWeek = action.payload
     },
@@ -83,7 +86,7 @@ const calendarSlice = createSlice({
 })
 
 export default calendarSlice.reducer;
-export const { setView, setSelectedMonth, setDaysOfMonth, setDaysOfWeek, setSelectedDay, unsetSelectedDay, setEvents, addEvent, removeEvent } = calendarSlice.actions;
+export const { setView, setSelectedMonth, setDaysOfMonth, setSelectedWeek, setDaysOfWeek, setSelectedDay, unsetSelectedDay, setEvents, addEvent, removeEvent } = calendarSlice.actions;
 
 export type RootStateCalendar = {
   calendar: CalendarState

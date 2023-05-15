@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { RootStateCalendar } from '../../redux/calendarSlice';
 import { setSelectedMonth } from '../../redux/calendarSlice';
-import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { AiOutlineArrowRight } from 'react-icons/ai';
+import { AiOutlineArrowLeft } from 'react-icons/ai';
 import Days from './Days';
 import '../../styling/Calendar/Month.scss';
 
