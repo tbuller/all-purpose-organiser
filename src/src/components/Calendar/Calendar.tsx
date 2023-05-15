@@ -39,6 +39,10 @@ const Calendar = () => {
     dispatch(setDaysOfMonth(days));
   }
 
+  const getDaysOfWeek = () => {
+    
+  }
+
   const handleViewChange = (timeFrame: string) => {
     dispatch(setView(timeFrame));
   }

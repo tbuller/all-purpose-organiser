@@ -4,6 +4,14 @@ const currentDate = new Date();
 
 const todaysDate =  new Intl.DateTimeFormat('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' }).format(currentDate);
 
+const getWeek = (date: any) => {
+  const tempDate: any = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+  const dayNum = tempDate.getDay() || 7;
+  tempDate.setDate(tempDate.getDate() + 4 - dayNum);
+  const yearStart: any = new Date(tempDate.getFullYear(), 0, 1);
+  return Math.ceil((((tempDate - yearStart) / 86400000) + 1)/7);
+}
+
 export type Event = {
   creatorId: string;
   day: string;
@@ -17,7 +25,9 @@ export type Event = {
 type CalendarState = {
   view: string;
   selectedMonth: number;
+  selectedWeek: number;
   daysOfMonth: string[];
+  daysOfWeek: string[];
   selectedDay: string;
   isDaySelected: boolean;
   todaysDate: string;
@@ -27,7 +37,9 @@ type CalendarState = {
 const initialState: CalendarState = {
   view: "month",
   selectedMonth: currentDate.getMonth(),
+  selectedWeek: getWeek(currentDate),
   daysOfMonth: [],
+  daysOfWeek: [],
   selectedDay: "",
   isDaySelected: false,
   todaysDate: todaysDate,
@@ -46,6 +58,9 @@ const calendarSlice = createSlice({
     },
     setDaysOfMonth: (state, action) => {
       state.daysOfMonth = action.payload
+    },
+    setDaysOfWeek: (state, action) => {
+      state.daysOfWeek = action.payload
     },
     setSelectedDay: (state, action) => {
       state.selectedDay = action.payload;
@@ -68,7 +83,7 @@ const calendarSlice = createSlice({
 })
 
 export default calendarSlice.reducer;
-export const { setView, setSelectedMonth, setDaysOfMonth, setSelectedDay, unsetSelectedDay, setEvents, addEvent, removeEvent } = calendarSlice.actions;
+export const { setView, setSelectedMonth, setDaysOfMonth, setDaysOfWeek, setSelectedDay, unsetSelectedDay, setEvents, addEvent, removeEvent } = calendarSlice.actions;
 
 export type RootStateCalendar = {
   calendar: CalendarState
