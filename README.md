@@ -13,7 +13,9 @@
 
 # Demo
 
-A planning application with multiple functionalities to help improve your organisation. This application is developed using the React framework, using Redux for state management and TypeScript.
+Click on the image below for a quick demo (please excuse the bad quality from YouTube)
+  
+[![Demo link](https://img.youtube.com/vi/0dx6pYJfVpk/0.jpg)](https://www.youtube.com/watch?v=0dx6pYJfVpk)  
 
 # Tech
 
