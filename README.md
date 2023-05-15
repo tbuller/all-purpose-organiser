@@ -64,16 +64,26 @@ Open [http://localhost:3000](http://localhost:3000) to view the app in your brow
   
 ## Calendar
   
-![Image](https://github.com/tbuller/all-purpose-organiser/blob/main/src/public/README_images/all-purpose-organiser-calendar-month-screenshot.png) 
+The home page welcomes users with a calendar displaying the current month, while offering the option to navigate to different months using the arrow buttons located at the top-left of the screen. Events created by the user are shown for each day, arranged by chronological order. Each event can be deleted by clicking on the cross. Additionally, the current day's date is indicated with a red background. 
   
-![Image](https://github.com/tbuller/all-purpose-organiser/blob/main/src/public/README_images/all-purpose-organiser-calendar-week-screenshot.png)  
+![Image](https://github.com/tbuller/all-purpose-organiser/blob/main/src/public/README_images/all-purpose-organiser-calendar-month-screenshot.png)
+  
+Users can alternatively toggle to a week view, which largely has the same features as the month view, such as navigation to different weeks.  
+  
+![Image](https://github.com/tbuller/all-purpose-organiser/blob/main/src/public/README_images/all-purpose-organiser-calendar-week-screenshot.png)
+  
+The user can click on any day on the calendar, and they will be taken to the selected day component. Here they will see their events for the given in more detail. A form can be opened by clicking on "Add event", which users can use to create a new event, associated with the selected day. The type of the event determines the background colour.  
   
 ![Image](https://github.com/tbuller/all-purpose-organiser/blob/main/src/public/README_images/all-purpose-organiser-selected-day-screenshot.png)  
   
 ## Shopping-basket
   
+With the shopping functionality, users can add items along with their quantity. Each item will have an image associated with it, that it gets from a call to a web API, using the item's name in the request. As such, no images are stored in the database. When the quantity for a given item goes down to zero, this will trigger it's deletion in the database, which is then reflected in the component with Redux.
+  
 ![Image](https://github.com/tbuller/all-purpose-organiser/blob/main/src/public/README_images/all-purpose-organiser-shopping-basket-screenshot.png)  
   
 ## Notes  
+  
+Finally, there is small notes feature. Users can create their own notes dynamically, and view them by clicking on the note's header.  
   
 ![Image](https://github.com/tbuller/all-purpose-organiser/blob/main/src/public/README_images/all-purpose-organiser-notes-screenshot.png)  
