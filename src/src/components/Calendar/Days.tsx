@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootStateUsers } from '../../redux/usersSlice';
 import { RootStateCalendar, Event } from '../../redux/calendarSlice';
 import { setSelectedDay, removeEvent } from '../../redux/calendarSlice';
-import { setLoggedInUser } from '../../redux/usersSlice';
 import '../../styling/Calendar/Days.scss'
 
 const Days = () => {

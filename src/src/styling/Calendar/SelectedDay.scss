@@ -1,5 +1,60 @@
+.back-to-calendar-button {
+  margin-top: 1em;
+  margin-left: 0.4em;
+  padding: 0.5em 1em;
+  background-color: #07ebc1;
+  border: none;
+  border-radius: 0.3em;
+  color: #2e2a7d;
+  font-size: 1em;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #2e2a7d;
+    color: white;
+  }
+}
+
+.toggle-event-form-button {
+  margin-top: 1em;
+  margin-left: 1em;
+  padding: 0.5em 1em;
+  background-color: #07ebc1;
+  border: none;
+  border-radius: 0.3em;
+  color: #2e2a7d;
+  font-size: 1em;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #2e2a7d;
+    color: white;
+  }
+}
+
 .event-form-wrapper {
   display: flex;
   justify-content: center;
   z-index: 5;
+}
+
+.selected-day-info-container {
+  display: inline-block;
+}
+
+.selected-day-header {
+  margin-left: 0.2em;
+  text-decoration: underline;
+  font-size: 2.5em;
+}
+
+.selected-day-events-header {
+  margin-left: 0.25em;
+  font-size: 2em;
+}
+
+.no-events-message {
+  margin-left: 0.4em;
+  font-style: italic;
+  font-size: 1.5em;
 }

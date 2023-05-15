@@ -1,13 +1,73 @@
 .days-events-container {
-  margin-left: 1em;
+  margin-left: 0.4em;
 }
 
 .individual-event-container {
-  height: 2em;
-  width: 20em;
+  height: 4em;
+  width: 30em;
   margin-top: 1em;
-  
+  border-radius: 0.5em;
+
+  &.meeting {
+    background-color: #007BFF;
+  }
+
+  &.social_event {
+    background-color: #28A745;
+  }
+
+  &.appointment {
+    background-color: #FFC107;
+  }
+
   &.workout_exercise {
-    background-color: red;
+    background-color: #DC3545;
+  }
+
+  &.educational {
+    background-color: #6F42C1;
+  }
+
+  &.celebration {
+    background-color: #E83E8C;
+  }
+
+  &.reminder {
+    background-color: #17A2B8;
+  }
+
+  &.travel {
+    background-color: #FD7E14;
+  }
+
+  &.entertainment {
+    background-color: #6C757D;
+  }
+
+  &.religious_spiritual {
+    background-color: #343A40;
+  }
+}
+
+.event-title {
+  margin-left: 0.2em;
+  color: white;
+  font-size: 1.5em;
+}
+
+.delete-event-button-days-events {
+  float: right;
+  margin-right: 0.2em;
+  padding: 0.5em 1em;
+  background-color: transparent;
+  border: none;
+  border-radius: 0.3em;
+  color: #2e2a7d;
+  font-size: 1em;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #2e2a7d;
+    color: white;
   }
 }

@@ -45,10 +45,10 @@ const Calendar = () => {
 
   return (
     <div className="calendar-container">
-      <div className="calendar-view-buttons-container">
+      {isDaySelected || <div className="calendar-view-buttons-container">
         <button className="calendar-view-button" onClick={() => handleViewChange("month")}>Month</button>
         <button className="calendar-view-button" onClick={() => handleViewChange("week")}>Week</button>
-      </div>
+      </div>}
         {(view === "month" && !isDaySelected) && <Month />}
         {isDaySelected && <SelectedDay />}      
     </div>

@@ -32,7 +32,7 @@ const DaysEvents: React.FC<DaysEventsProps> = ({ events }) => {
       {events.map(event =>
         <div className={`individual-event-container ${event.type}`} key={event._id} >
           <div className="event-title">{event.title}</div>
-          <button onClick={() => handleRemoveEvent(event)}>Delete event</button>
+          <button className="delete-event-button-days-events" onClick={() => handleRemoveEvent(event)}>Delete event</button>
         </div>
         )}
       </div>
