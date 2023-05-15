@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootStateCalendar } from '../../redux/calendarSlice';
 import { setView } from '../../redux/calendarSlice';
 import { setDaysOfMonth, setEvents } from '../../redux/calendarSlice';
-import { setInvites } from '../../redux/invitesSlice';
 import Week from './Week';
 import Month from './Month';
 import SelectedDay from './SelectedDay';
@@ -24,14 +23,6 @@ const Calendar = () => {
         dispatch(setEvents(data.events));
       })
   }, [])
-
-  useEffect(() => {
-    fetch("http://localhost:8080/invites")
-      .then(response => response.json())
-      .then(data => {
-        dispatch(setInvites(data.invites));
-      })
-  })
 
   useEffect(() => {
     getDaysOfMonth();

@@ -23,7 +23,6 @@ const NavBar = () => {
       <button className={`nav-bar-button${viewedComponent === "calendar" ? " selected" : ""}`} onClick={() => handleSetComponent("calendar")}><BsFillCalendarFill className="calendar-icon" /></button>
       <button className={`nav-bar-button${viewedComponent === "shopping" ? " selected" : ""}`} onClick={() => handleSetComponent("shopping")}><GiShoppingCart className="shopping-icon" /></button>
       <button className={`nav-bar-button${viewedComponent === "notes" ? " selected" : ""}`} onClick={() => handleSetComponent("notes")}><GrNotes className="notes-icon" /></button>
-      <button className={`nav-bar-button${viewedComponent === "social" ? " selected" : ""}`} onClick={() => handleSetComponent("social")}><FaUserFriends className="social-icon" /></button>
     </div>
   )
 }

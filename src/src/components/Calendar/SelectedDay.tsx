@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootStateUsers } from '../../redux/usersSlice';
 import { RootStateCalendar, Event } from '../../redux/calendarSlice';
 import { unsetSelectedDay } from '../../redux/calendarSlice';
-import { RootStateInvites, Invite } from '../../redux/invitesSlice';
 import EventForm from './EventForm'; 
 import DaysEvents from './DaysEvents';
 import '../../styling/Calendar/SelectedDay.scss';
@@ -16,7 +15,6 @@ const SelectedDay = () => {
   const selectedDay = useSelector((state: RootStateCalendar) => state.calendar.selectedDay);
   const isDaySelected = useSelector((state: RootStateCalendar) => state.calendar.isDaySelected);
   const myDaysEvents = useSelector((state: RootStateCalendar) => state.calendar.events.filter((event: Event) => event.day === selectedDay && event.creatorId === loggedInUser?._id));
-  const myDaysInvites = useSelector((state: RootStateInvites) => state.invites.invites.length > 1 && state.invites.invites.filter((invite: Invite) => invite.inviteDay === selectedDay && invite.inviteeId === loggedInUser?._id));
 
   const [showForm, setShowForm] = useState(false);
 
@@ -32,7 +30,7 @@ const SelectedDay = () => {
       {showForm && <EventForm />}
       </div>
       <div className="day-info">
-        {myDaysEvents.length > 0 && <DaysEvents events={myDaysEvents} invites={myDaysInvites} />}
+        {myDaysEvents.length > 0 && <DaysEvents events={myDaysEvents} />}
       </div>
     </div>
   )
